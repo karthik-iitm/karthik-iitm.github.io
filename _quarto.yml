@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "Karthik Thiagarajan"
+  page-footer: "Copyright 2024 @ Karthik Thiagarajan"
+  page-navigation: true
+  search: false
+  sidebar:
+    collapsed: true
+    contents:
+      - auto: courses
+      - auto: topics
+      - auto: random
+    collapse-level: 1
+    background: "light"
+    style: "docked"
+    border: true
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+    fontsize: 20px
+    toc: true
