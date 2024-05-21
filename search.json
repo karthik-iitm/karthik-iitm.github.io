@@ -1,0 +1,1404 @@
+[
+  {
+    "objectID": "random/solving_equations.html",
+    "href": "random/solving_equations.html",
+    "title": "Reversible Transformations",
+    "section": "",
+    "text": "Solving equations can sometimes be tricky.\n\\[\nx^{2}=4\n\\]\nThe right approach to solve this question is as follows:\n\\[\n\\begin{aligned}\nx^{2}-4 & =0\\\\\n(x-2)(x+2) & =0\\\\\nx & =\\pm2\n\\end{aligned}\n\\]\nThe more complicated approach is to apply the transformation “take square root on both sides”, which is admissible since both sides are positive. Though this is not quite elegant, this will give us the same answer:\n\\[\n\\begin{aligned}\nx^{2} & =4\\\\\n|x| & =2\\\\\nx & =\\pm2\n\\end{aligned}\n\\]\nThe square root can be viewed as a function from \\([0,\\infty)\\) to \\([0,\\infty)\\). So each non-negative input has exactly one non-negative output. With this, the square root of \\(x^{2}\\) has to be \\(|x|\\), a non-negative quantity.\nSolving equations can get tricky when you start transforming equations. For example, consider the following sequence of transformations:\n\\[\n\\begin{aligned}\nx & =2\\\\\nx^{2} & =4 & \\text{squaring}\\\\\n|x| & =2 & \\text{square root}\\\\\nx & =\\pm2\n\\end{aligned}\n\\]\nHow can \\(x\\) be \\(2\\) and \\(-2\\)? The problem is with squaring both sides. The equation \\(x=2\\) and \\(x^{2}=4\\) are not the same. That is, \\(x=2\\implies x^{2}=4\\), but \\(x^{2}=4\\) does not lead to \\(x=2\\). Squaring is not a “reversible transformation”. We usually ignore \\(x=-2\\), calling it an extraneous solution, but what makes it extraneous is the fact that transformations may not be reversible.",
+    "crumbs": [
+      "Random",
+      "Reversible Transformations"
+    ]
+  },
+  {
+    "objectID": "random/solving_equations.html#simple-equations",
+    "href": "random/solving_equations.html#simple-equations",
+    "title": "Reversible Transformations",
+    "section": "",
+    "text": "Solving equations can sometimes be tricky.\n\\[\nx^{2}=4\n\\]\nThe right approach to solve this question is as follows:\n\\[\n\\begin{aligned}\nx^{2}-4 & =0\\\\\n(x-2)(x+2) & =0\\\\\nx & =\\pm2\n\\end{aligned}\n\\]\nThe more complicated approach is to apply the transformation “take square root on both sides”, which is admissible since both sides are positive. Though this is not quite elegant, this will give us the same answer:\n\\[\n\\begin{aligned}\nx^{2} & =4\\\\\n|x| & =2\\\\\nx & =\\pm2\n\\end{aligned}\n\\]\nThe square root can be viewed as a function from \\([0,\\infty)\\) to \\([0,\\infty)\\). So each non-negative input has exactly one non-negative output. With this, the square root of \\(x^{2}\\) has to be \\(|x|\\), a non-negative quantity.\nSolving equations can get tricky when you start transforming equations. For example, consider the following sequence of transformations:\n\\[\n\\begin{aligned}\nx & =2\\\\\nx^{2} & =4 & \\text{squaring}\\\\\n|x| & =2 & \\text{square root}\\\\\nx & =\\pm2\n\\end{aligned}\n\\]\nHow can \\(x\\) be \\(2\\) and \\(-2\\)? The problem is with squaring both sides. The equation \\(x=2\\) and \\(x^{2}=4\\) are not the same. That is, \\(x=2\\implies x^{2}=4\\), but \\(x^{2}=4\\) does not lead to \\(x=2\\). Squaring is not a “reversible transformation”. We usually ignore \\(x=-2\\), calling it an extraneous solution, but what makes it extraneous is the fact that transformations may not be reversible.",
+    "crumbs": [
+      "Random",
+      "Reversible Transformations"
+    ]
+  },
+  {
+    "objectID": "random/solving_equations.html#gaussian-elimination",
+    "href": "random/solving_equations.html#gaussian-elimination",
+    "title": "Reversible Transformations",
+    "section": "Gaussian Elimination",
+    "text": "Gaussian Elimination\nA classic example of a reversible transformations is row reduction that is employed in Gaussian elimination. Each row reduction operation is equivalent to pre-multiplying by an invertible (elementary) matrix. Going from a matrix \\(A\\) to its RREF form, \\(R\\), involves a sequence of matrix multiplications:\n\\[\nE_{m}\\cdots E_{1}A=R\n\\]\nThis can be written as \\(EA=R\\), where \\(E=E_{m}\\cdots E_{1}\\), and \\(E\\) is invertible. Solving \\(Ax=b\\), is therefore equivalent to solving \\(EAx=Eb\\). The reversibility of the transformation is what allows us to “temporarily forget” the original system and focus on the reduced system.",
+    "crumbs": [
+      "Random",
+      "Reversible Transformations"
+    ]
+  },
+  {
+    "objectID": "random/solving_equations.html#optimization",
+    "href": "random/solving_equations.html#optimization",
+    "title": "Reversible Transformations",
+    "section": "Optimization",
+    "text": "Optimization\nA third example of a reversible transformation appears in optimization problems. Let us say we wish to find a rectangle with the longest diagonal with a given perimeter:\n\\[\n\\begin{aligned}\n\\max\\,\\,\\, & \\sqrt{x^{2}+y^{2}}\\\\\n\\\\2(x+y) & =p\\\\\nx,y & \\geq0\n\\end{aligned}\n\\]\nIt is easier to maximize \\(x^{2}+y^{2}\\) rather than \\(\\sqrt{x^{2}+y^{2}}\\):\n\\[\n\\begin{aligned}\n\\max\\,\\,\\, & x^{2}+y^{2}\\\\\n\\\\2(x+y) & =p\\\\\nx,y & \\geq0\n\\end{aligned}\n\\]\nWhat makes these two optimization problems equivalent? If we wish to be really rigorous, we can start by looking at the feasible set. This remains the same for both the problems as the constraints haven’t changed. Let us call this set \\(F\\). If \\((x_{1},y_{1})\\) maximizes the first version, what does it mean?\n\\[\n\\sqrt{x_{1}^{2}+y_{1}^{2}}\\geq\\sqrt{x^{2}+y^{2}},\\,\\,\\forall\\,(x,y)\\in F\n\\]\nSince both sides are positive, this means:\n\\[\nx_{1}^{2}+y_{1}^{2}\\geq x^{2}+y^{2},\\,\\forall\\,(x,y)\\in F\n\\]\nThus \\((x_{1},y_{1})\\) maximizes the second version. We can now go in the other direction and the result will be the same. The operation of “squaring” the objective happened to be reversible in this case. Another reversible transformation in the context of optimization is to maximize the log-likelihood instead of the likelihood.",
+    "crumbs": [
+      "Random",
+      "Reversible Transformations"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/problems/problem-1.html",
+    "href": "topics/linear_algebra/problems/problem-1.html",
+    "title": "Problem-1",
+    "section": "",
+    "text": "Let \\(W\\) be a finite dimensional real vector space, and let \\(U\\) and \\(V\\) be two subspaces of \\(W\\). Let \\(U+V\\) be the space\n\\[\nU+V=\\{u+v\\,:\\,u\\in U\\text{ and }v\\in V\\}\n\\]\nShow the following:\n\n\\(U+V\\) is a subspace of \\(W\\).\n\\(\\text{dim}(U+V)=\\text{dim}(U)+\\text{dim}(V)-\\text{dim}(U\\cap V)\\)\n\n\nWe see that \\(0\\in U+V\\). If \\(u_{1}+v_{1}\\in U+V\\) and \\(u_{2}+v_{2}\\in U+V\\), then \\((u_{1}+u_{2})+(v_{1}+v_{2})\\in U+V\\). If \\(u+v\\in U+V\\) and \\(\\lambda\\in\\mathbb{R}\\), then \\(\\lambda(u+v)=\\lambda u+\\lambda v\\in U+V\\). Using these three observations, we conclude that \\(U+V\\) is a subspace of \\(W\\).\nWe know that \\(U\\cap V\\) is a subspace of \\(W\\). Let \\(\\{w_{1},\\cdots,w_{k}\\}\\) be a basis for \\(U\\cap V\\). We can now extend this to a basis for \\(U\\) and a basis for \\(V\\). The two bases are \\(\\{w_{1},\\cdots,w_{k},u_{1},\\cdots,u_{m}\\}\\) for \\(U\\) and \\(\\{w_{1},\\cdots,w_{k},v_{1},\\cdots,v_{n}\\}\\) for \\(V\\). Consider the set \\(\\{w_{1},\\cdots,w_{k},u_{1},\\cdots,u_{m},v_{1},\\cdots,v_{n}\\}.\\) It is quite easy to see that this set spans \\(U+V\\). If we can show that this set is also linearly independent, then we have a basis for \\(U+V\\).\nLet us take a linear combination of this collection and set it to zero:\n\\[\n(a_{1}w_{1}+\\cdots+a_{k}w_{k})+(b_{1}u_{1}+\\cdots+b_{m}u_{m})+(c_{1}v_{1}+\\cdots+c_{n}v_{n})=0\n\\]\nWe can now group the terms in the following way:\n\\[\na_{1}w_{1}+\\cdots+a_{k}w_{k}+b_{1}u_{1}+\\cdots+b_{m}u_{m}=-(c_{1}v_{1}+\\cdots+c_{n}v_{n})\n\\]\nThe LHS is a vector in \\(U\\) and the RHS is a vector in \\(V\\). Since the two are equal, the vector in question is in \\(U\\cap V\\). We can now express this using the basis for \\(U\\cap V\\):\n\\[\n\\begin{aligned}\n-(c_{1}v_{1}+\\cdots+c_{n}v_{n}) & =d_{1}w_{1}+\\cdots+d_{k}w_{k}\\\\\nc_{1}v_{1}+\\cdots+c_{n}v_{n}+d_{1}w_{1}+\\cdots+d_{k}w_{k} & =0\n\\end{aligned}\n\\]\nThis is actually a linear combination of the basis vectors of \\(V\\) set to zero. Hence, \\(c_{1}=\\cdots=c_{n}=d_{1}=\\cdots d_{k}=0\\). Going back to the original equation, we conclude that \\(a_{1}=\\cdots=a_{k}=b_{1}=\\cdots=b_{m}=0\\). This implies, the set \\(\\{w_{1},\\cdots,w_{k},u_{1},\\cdots,u_{m},v_{1},\\cdots,v_{n}\\}\\) is linearly independent. We therefore have shown that this is a basis for \\(U+V\\).\nFrom this, the formula that relates the dimensions of the subspaces \\(U,V,U\\cap V\\) and \\(U+V\\) follows:\n\\[\n\\boxed{\\text{dim}(U+V)=\\text{dim}(U)+\\text{dim}(V)-\\text{dim}(U\\cap V)}\n\\]",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Problems",
+      "Problem-1"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/inverse.html",
+    "href": "topics/linear_algebra/notes/inverse.html",
+    "title": "Inverse and Determinant",
+    "section": "",
+    "text": "Let \\(A\\) be a square matrix of order \\(n\\). \\(A\\) is invertible if and only if \\(\\text{det}(A)\\neq0\\).",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "Inverse and Determinant"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/inverse.html#invertible-implies-non-zero-determinant",
+    "href": "topics/linear_algebra/notes/inverse.html#invertible-implies-non-zero-determinant",
+    "title": "Inverse and Determinant",
+    "section": "Invertible \\(\\implies\\) Non-zero determinant",
+    "text": "Invertible \\(\\implies\\) Non-zero determinant\nIf \\(A\\) is invertible, \\(A^{-1}\\) exists. We have:\n\\[\n\\begin{aligned}\nAA^{-1} & =I\\\\\n\\\\\\text{det}(A)\\cdot\\text{det}\\left(A^{-1}\\right) & =1\n\\end{aligned}\n\\]\nSince the product of two real numbers is \\(1\\), both of them have to be non-zero, establishing that \\(\\text{det}(A)\\neq0\\). We can compute the determinant of \\(A^{-1}\\) and it is \\(\\cfrac{1}{\\text{det}(A)}\\).",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "Inverse and Determinant"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/inverse.html#non-zero-determinant-implies-invertible",
+    "href": "topics/linear_algebra/notes/inverse.html#non-zero-determinant-implies-invertible",
+    "title": "Inverse and Determinant",
+    "section": "Non-zero determinant \\(\\implies\\) Invertible",
+    "text": "Non-zero determinant \\(\\implies\\) Invertible\nWe use the following identity:\n\\[\nA \\cdot \\text{adj}(A)=\\text{adj}(A)\\cdot A=\\text{det}(A)\\cdot I\n\\]\nwhere \\(\\text{adj}(A)\\) is the adjugate of \\(A\\). If \\(\\text{det}(A)\\neq0\\), we can divide the above identity uniformly by \\(\\text{det}(A)\\) to get:\n\\[\n\\begin{aligned}\nA\\cdot\\left[\\cfrac{1}{\\text{det}(A)}\\text{adj}(A)\\right] & =\\left[\\cfrac{1}{\\text{det}(A)}\\text{adj}(A)\\right]A=I\n\\end{aligned}\n\\]\nWe now have a matrix \\(B\\) such that \\(AB=BA=I\\). It follows that \\(A\\) is invertible. Specifically, the inverse of \\(A\\) can be represented as:\n\\[\nA^{-1}=\\cfrac{1}{\\text{det}(A)}\\text{adj}(A)\n\\]",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "Inverse and Determinant"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/spectral.html",
+    "href": "topics/linear_algebra/notes/spectral.html",
+    "title": "Spectral Theorem (real version)",
+    "section": "",
+    "text": "If \\(A\\) is a real symmetric matrix, then it is orthogonally diagonalizable. In particular, there exists an orthogonal matrix \\(Q\\) and a diagonal matrix \\(D\\) such that:\n\\[\nA=QDQ^{T}\n\\]\nIf the order of \\(A\\) is \\(n\\), we can express \\(Q\\) and \\(D\\) as:\n\\[\nQ=\\begin{bmatrix}\\vert &  & \\vert\\\\\nq_{1} & \\cdots & q_{n}\\\\\n\\vert &  & \\vert\n\\end{bmatrix},\\,\\,\\,\\,D=\\begin{bmatrix}\\lambda_{1}\\\\\n& \\ddots\\\\\n&  & \\lambda_{n}\n\\end{bmatrix}\n\\]\nThe columns of \\(Q\\) are the eigenvectors of \\(A\\). The corresponding eigenvalues are to be found on the diagonals of \\(D\\). Therefore, \\((\\lambda_{i},q_{i})\\) is an eigenpair of \\(A\\), that is, \\(Aq_{i}=\\lambda_{i}q_{i}\\). Also, \\(q_{1},\\cdots,q_{n}\\) form an orthonormal basis for \\(\\mathbb{R}^{n}\\). Recall that:\n\\[\nQ^{T}Q=QQ^{T}=I\n\\]\nWe can also express \\(A\\) as the sum of \\(n\\) outer products:\n\\[\nA=\\sum\\limits_{i=1}^{n}\\lambda_{i}q_{i}q_{i}^{T}\n\\]\nOne way of seeing this is to treat the product \\(QDQ^{T}\\) as \\((QD)Q^{T}\\). Since \\(D\\) is diagonal, \\(QD\\) would just result in scaling the columns of \\(Q\\) by the corresponding diagonal entries in \\(D\\):\n\\[\nQD=\\begin{bmatrix}\\vert &  & \\vert\\\\\n\\lambda_{1}q_{1} & \\cdots & \\lambda_{n}q_{n}\\\\\n\\vert &  & \\vert\n\\end{bmatrix}\n\\]\nThe outer product now follows.\nHere is an example of a symmetric matrix and its spectral decomposition:\n\\[\nA=\\begin{bmatrix}2 & 0 & -1\\\\\n0 & 2 & 0\\\\\n-1 & 0 & 2\n\\end{bmatrix},\\,\\,\\,\\,Q=\\frac{1}{\\sqrt{2}}\\begin{bmatrix}1 & 0 & 1\\\\\n0 & 1 & 0\\\\\n1 & 0 & -1\n\\end{bmatrix},\\,\\,\\,\\,D=\\begin{bmatrix}1 & 0 & 0\\\\\n0 & 2 & 0\\\\\n0 & 0 & 3\n\\end{bmatrix}\n\\]",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "Spectral Theorem (real version)"
+    ]
+  },
+  {
+    "objectID": "topics/machine_learning/notes/PCA.html",
+    "href": "topics/machine_learning/notes/PCA.html",
+    "title": "PCA",
+    "section": "",
+    "text": "Let \\(X\\) be a centered dataset of shape \\(d\\times n\\):\n\\[\nX=\\begin{bmatrix}\\vert &  & \\vert\\\\\nx_{1} & \\cdots & x_{n}\\\\\n\\vert &  & \\vert\n\\end{bmatrix}\n\\]\nThe \\(i^{th}\\) column of \\(X\\) is the \\(i^{th}\\) data-point. Since \\(X\\) is centered, we have:\n\\[\n\\sum_{i=1}^{n}x_{i}=0\n\\]\nWe are going to look for a subspace of dimension \\(k\\) that is closest to the dataset. More precisely, we want to minimize the reconstruction error after projecting the data-points onto this subspace. We can always find an orthonormal basis for a subspace. Let us call this subspace \\(W\\) and an orthonormal basis for that as \\(\\{w_{1},\\cdots,w_{k}\\}\\):\nThe projection of the \\(i^{th}\\) data-point onto this subspace is:\n\\[\n\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})w_{j}\n\\]\nThe residue in projecting this data-point onto the subspace is:\n\\[\ne_{i}=x_{i}-\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})w_{j}\\right]\n\\]\nThe error is \\(||e_{i}||^{2}\\). Let us now expand this error term by using the fact that \\(||e_{i}||^{2}=e_{i}^{T}e_{i}\\).\n\\[\n\\begin{aligned}\ne_{i}^{T}e_{i} & =x_{i}^{T}x_{i}-\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})^{2}\\right]\n\\end{aligned}\n\\]\nSince we will be minimizing the error, we can drop \\(x_{i}^{T}x_{i}\\), which is a constant in the context of the minimization problem. We are therefore left with the following quantity for a single data-point:\n\\[\n-\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})^{2}\\right]\n\\]\nFor the entire dataset, we sum this error and divide by \\(n\\):\n\\[\n-\\frac{1}{n}\\sum\\limits_{i=1}^{n}\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})^{2}\\right]\n\\]\nSetting \\(C=\\frac{1}{n}\\sum\\limits_{i=1}^{n}x_{i}x_{i}^{T}\\), interchanging the order of the summation and the order of multiplication, we get:\n\\[\n-\\sum\\limits_{j=1}^{k}w_{j}^{T}\\left[\\frac{1}{n}\\sum\\limits_{i=1}^{n}x_{i}x_{i}^{T}\\right]w_{j}=-\\sum_{j=1}^{k}w_{j}^{T}Cw_{j}\n\\]\nMinimizing the above quantity is the same as maximizing its negation. Therefore, we have the following optimization problem:\n\\[\n\\max\\,\\,\\,\\sum\\limits_{i=1}^{k}w_{i}^{T}Cw_{i}\n\\]\nwhere \\(\\{w_{1},\\cdots,w_{k}\\}\\) is an orthonormal list of vectors and \\(C\\) is the covariance matrix of the dataset.",
+    "crumbs": [
+      "Topics",
+      "Machine Learning",
+      "Notes",
+      "PCA"
+    ]
+  },
+  {
+    "objectID": "topics/machine_learning/notes/PCA.html#setting-up-the-problem",
+    "href": "topics/machine_learning/notes/PCA.html#setting-up-the-problem",
+    "title": "PCA",
+    "section": "",
+    "text": "Let \\(X\\) be a centered dataset of shape \\(d\\times n\\):\n\\[\nX=\\begin{bmatrix}\\vert &  & \\vert\\\\\nx_{1} & \\cdots & x_{n}\\\\\n\\vert &  & \\vert\n\\end{bmatrix}\n\\]\nThe \\(i^{th}\\) column of \\(X\\) is the \\(i^{th}\\) data-point. Since \\(X\\) is centered, we have:\n\\[\n\\sum_{i=1}^{n}x_{i}=0\n\\]\nWe are going to look for a subspace of dimension \\(k\\) that is closest to the dataset. More precisely, we want to minimize the reconstruction error after projecting the data-points onto this subspace. We can always find an orthonormal basis for a subspace. Let us call this subspace \\(W\\) and an orthonormal basis for that as \\(\\{w_{1},\\cdots,w_{k}\\}\\):\nThe projection of the \\(i^{th}\\) data-point onto this subspace is:\n\\[\n\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})w_{j}\n\\]\nThe residue in projecting this data-point onto the subspace is:\n\\[\ne_{i}=x_{i}-\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})w_{j}\\right]\n\\]\nThe error is \\(||e_{i}||^{2}\\). Let us now expand this error term by using the fact that \\(||e_{i}||^{2}=e_{i}^{T}e_{i}\\).\n\\[\n\\begin{aligned}\ne_{i}^{T}e_{i} & =x_{i}^{T}x_{i}-\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})^{2}\\right]\n\\end{aligned}\n\\]\nSince we will be minimizing the error, we can drop \\(x_{i}^{T}x_{i}\\), which is a constant in the context of the minimization problem. We are therefore left with the following quantity for a single data-point:\n\\[\n-\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})^{2}\\right]\n\\]\nFor the entire dataset, we sum this error and divide by \\(n\\):\n\\[\n-\\frac{1}{n}\\sum\\limits_{i=1}^{n}\\left[\\sum\\limits_{j=1}^{k}(x_{i}^{T}w_{j})^{2}\\right]\n\\]\nSetting \\(C=\\frac{1}{n}\\sum\\limits_{i=1}^{n}x_{i}x_{i}^{T}\\), interchanging the order of the summation and the order of multiplication, we get:\n\\[\n-\\sum\\limits_{j=1}^{k}w_{j}^{T}\\left[\\frac{1}{n}\\sum\\limits_{i=1}^{n}x_{i}x_{i}^{T}\\right]w_{j}=-\\sum_{j=1}^{k}w_{j}^{T}Cw_{j}\n\\]\nMinimizing the above quantity is the same as maximizing its negation. Therefore, we have the following optimization problem:\n\\[\n\\max\\,\\,\\,\\sum\\limits_{i=1}^{k}w_{i}^{T}Cw_{i}\n\\]\nwhere \\(\\{w_{1},\\cdots,w_{k}\\}\\) is an orthonormal list of vectors and \\(C\\) is the covariance matrix of the dataset.",
+    "crumbs": [
+      "Topics",
+      "Machine Learning",
+      "Notes",
+      "PCA"
+    ]
+  },
+  {
+    "objectID": "topics/machine_learning/notes/PCA.html#solving-the-problem",
+    "href": "topics/machine_learning/notes/PCA.html#solving-the-problem",
+    "title": "PCA",
+    "section": "Solving the problem",
+    "text": "Solving the problem\nSince \\(C\\) is a real symmetric matrix, it is diagonalizable. There is an orthonormal basis of eigenvectors of \\(C\\) for \\(\\mathbb{R}^{d}\\). Let us denote it by \\(\\{u,\\cdots,u_{d}\\}\\). We also note that \\(C\\) is positive semi-definite, so it has \\(d\\) non-negative eigenvalues. Let us call them \\(\\lambda_{1}\\geq\\cdots\\geq\\lambda_{d}\\ge0\\). We can represent \\(C\\) as:\n\\[\nC=\\sum\\limits_{i=1}^{d}\\lambda_{i}u_{i}u_{i}^{T}\n\\]\nPlugging this back into the objective function, we have:\n\\[\n\\begin{aligned}\n\\sum\\limits_{i=1}^{k}w_{i}^{T}Cw_{i} & =\\sum\\limits_{i=1}^{k}\\sum\\limits_{j=1}^{d}\\lambda_{j}(w_{i}^{T}u_{j})^{2}\n\\end{aligned}\n\\]\nChanging the order of the summation inside, we have:\n\\[\n\\sum_{j=1}^{d}\\lambda_{j}\\sum_{i=1}^{k}(u_{j}^{T}w_{i})^{2}\n\\]\nThe term \\(\\sum\\limits_{i=1}^{k}(u_{j}^{T}w_{i})^{2}\\) is the squared norm of the projection of \\(u_{j}\\) onto the subspace \\(W\\). Since the norm of a vector is always greater than or equal to the norm of its projection, we have:\n\\[\n\\sum_{i=1}^{k}(u_{j}^{T}w_{i})^{2}\\leq||u_{j}||^{2}=1\n\\]\nApplying this inequality across all values of \\(j\\), we end up with:\n\\[\n\\sum\\limits_{i=1}^{k}w_{i}^{T}Cw_{i}\\leq\\sum_{j=1}^{d}\\lambda_{j}\n\\]\nWe have thus arrived at an upper bound for the objective function. This upper bound can actually be achieved when \\(w_{i}=u_{i}\\) for \\(1\\leq i\\leq k\\).",
+    "crumbs": [
+      "Topics",
+      "Machine Learning",
+      "Notes",
+      "PCA"
+    ]
+  },
+  {
+    "objectID": "topics/machine_learning/notes/PCA.html#summary",
+    "href": "topics/machine_learning/notes/PCA.html#summary",
+    "title": "PCA",
+    "section": "Summary",
+    "text": "Summary\nIn summary, the subspace that is closest to the dataset is the one spanned by the top \\(k\\) eigenvectors of the covariance matrix of the centered dataset.",
+    "crumbs": [
+      "Topics",
+      "Machine Learning",
+      "Notes",
+      "PCA"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/runs/index.html",
+    "href": "courses/Maths-2/runs/index.html",
+    "title": "Course Runs",
+    "section": "",
+    "text": "Resources related to a particular term of the Maths-2 course.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Course Runs"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-1.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-1.html",
+    "title": "Question-1",
+    "section": "",
+    "text": "If \\(x=(1,2)\\) and \\(y=(2,3)\\) are two vectors, compute the following vectors\n\n\\(x+y\\)\n\\(x-y\\)\n\\(2x\\)\n\\(3y\\)\n\n\nAddition of vectors happens component wise. We have:\n\\[\n\\begin{aligned}\nx+y & =(1,2)+(2,3)=(3,5)\\\\\nx-y & =(1,2)-(2,3)=(-1,-1)\n\\end{aligned}\n\\]\nMultiplying a vector by a scalar is done by multiplying each component of the vector by the scalar.\n\\[\n\\begin{aligned}\n2x & =2(1,2)=(2,4)\\\\\n3y & =3(2,3)=(6,9)\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-1"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-4.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-4.html",
+    "title": "Question-4",
+    "section": "",
+    "text": "The marks obtained by four students in quiz-1, quiz-2 and the end-term exam are given below:\n\n\n\nNames\nQuiz-1\nQuiz-2\nEnd-term\n\n\n\n\nA\n50\n60\n60\n\n\nB\n70\n80\n90\n\n\nC\n80\n90\n100\n\n\nD\n75\n80\n85\n\n\n\nThe marks of student A are halved for each exam. Which mathematical operation does this correspond to on the columns and rows of the above table?\n\nThe marks of student A represents the row vector \\(\\begin{bmatrix}50 & 60 & 60\\end{bmatrix}\\). Halving the marks of A in each exam corresponds to scalar multiplication of the row vector by \\(0.5\\):\n\\[\n0.5\\cdot\\begin{bmatrix}50 & 60 & 60\\end{bmatrix}=\\begin{bmatrix}25 & 30 & 30\\end{bmatrix}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-4"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-6.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-6.html",
+    "title": "Question-6",
+    "section": "",
+    "text": "Let \\(a\\) and \\(b\\) be two vectors. Compute the following:\n\n\\(3(a+b)+[(a+b)-(a-b)]\\)\n\\(5(a+b)-[(a+b)-(a-b)]\\)\n\\(3(a+b)+[(a+b)+(a-b)]\\)\n\\(5(a+b)-[(a+b)+(a-b)]\\)\n\n\nFirst:\n\\[\n\\begin{aligned}\n3(a+b)+[(a+b)-(a-b)] & =3a+3b+(a+b-a+b)\\\\\n& =3a+3b+2b\\\\\n& =3a+5b\n\\end{aligned}\n\\]\nSecond:\n\\[\n\\begin{aligned}\n5(a+b)-[(a+b)-(a-b)] & =5a+5b-(a+b-a+b)\\\\\n& =5a+5b-2b\\\\\n& =5a+3b\n\\end{aligned}\n\\]\nThird:\n\\[\n\\begin{aligned}\n3(a+b)+[(a+b)+(a-b)] & =3a+3b+2a\\\\\n& =5a+3b\n\\end{aligned}\n\\]\nFourth:\n\\[\n\\begin{aligned}\n5(a+b)-[(a+b)+(a-b)] & =5a+5b-2a\\\\\n& =3a+5b\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-2.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-2.html",
+    "title": "Question-2",
+    "section": "",
+    "text": "Let \\(v_{1}=(1,1),v_{2}=(1,0)\\) and \\(v_{3}=(0,1)\\) be three vectors. Compute the following:\n\n\\(2v_{1}+0v_{2}+v_{3}\\)\n\\(0v_{1}+2v_{2}+3v_{3}\\)\n\\(2v_{1}+v_{2}+0v_{3}\\)\n\\(0v_{1}+3v_{2}+2v_{3}\\)\n\n\nWe use the fact that \\(0\\cdot(a,b)=(0,0)\\) for all \\(a,b\\in\\mathbb{R}\\). Now we can go ahead and compute these quantities:\n\\[\n\\begin{aligned}\n2v_{1}+v_{3} & =2(1,1)+(0,1)=(2,3)\\\\\n2v_{2}+3v_{3} & =2(1,0)+3(0,1)=(2,3)\\\\\n2v_{1}+v_{2} & =2(1,1)+(1,0)=(3,2)\\\\\n3v_{2}+2v_{3} & =3(1,0)+2(0,1)=(3,2)\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html",
+    "title": "Question-8",
+    "section": "",
+    "text": "Do there exist square matrices \\(A\\) and \\(B\\) of order two such that \\(AB=BA\\)?\nDoes there exist a square matrix \\(A\\) of order two such that \\(A^{2}=A\\)?\nDoes there exist a square matrix \\(A\\) of order two such that \\(A^{2}+A+I=0\\)?",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html#abba",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html#abba",
+    "title": "Question-8",
+    "section": "\\(AB=BA\\)",
+    "text": "\\(AB=BA\\)\nIn general, matrix multiplication is not commutative. That is, if \\(A\\) and \\(B\\) are two matrices, then \\(AB\\neq BA\\). However, not all pairs of matrices are like this.\n\nA simple but trivial example is the case of \\(A=B\\).\nAnother example is the case of \\(B=I\\), since \\(AI=IA=A\\).\nTwo diagonal matrices always commute. This is because the product of two diagonal matrices is another diagonal matrix whose entries are the product of the corresponding diagonal entries:\n\n\\[\n\\begin{aligned}\nD_{1} & =\\begin{bmatrix}2 & 0\\\\\n0 & 3\n\\end{bmatrix}\\\\\nD_{2} & =\\begin{bmatrix}3 & 0\\\\\n0 & 5\n\\end{bmatrix}\\\\\nD_{1}D_{2} & =D_{2}D_{1}=\\begin{bmatrix}6 & 0\\\\\n0 & 15\n\\end{bmatrix}\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html#a2a",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html#a2a",
+    "title": "Question-8",
+    "section": "\\(A^{2}=A\\)",
+    "text": "\\(A^{2}=A\\)\nIn the case of \\(A^{2}=A\\), we can see that \\(A=I\\) would satisfy \\(A^{2}=A\\). Interestingly, \\(A=-I\\) would not satisfy \\(A^{2}=A\\). Compare this to the single variable equation \\(a^{2}=a\\), in which \\(a=-1\\) is also a solution. To construct a non-trivial example, we can take any \\(2\\times2\\) matrix \\(A=\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\)\n\\[\n\\begin{aligned}\n\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix} & =\\begin{bmatrix}a^{2}+bc & ab+bd\\\\\nac+cd & bc+d^{2}\n\\end{bmatrix}\\\\\n& =\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\n\\end{aligned}\n\\]\nWe now have:\n\\[\n\\begin{aligned}\na^{2}+bc & =a\\\\\nb(a+d) & =b\\\\\nc(a+d) & =c\\\\\nd^{2}+bc & =d\n\\end{aligned}\n\\]\nOne solution can be \\(a=1,b=2,c=0,d=0\\) which gives us the matrix \\(\\begin{bmatrix}1 & 2\\\\\n0 & 0\n\\end{bmatrix}\\). You can verify that \\(A^{2}=A\\) for this matrix.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html#a2ai0",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html#a2ai0",
+    "title": "Question-8",
+    "section": "\\(A^{2}+A+I=0\\)",
+    "text": "\\(A^{2}+A+I=0\\)\nFirst consider the corresponding equation in one variable:\n\\[\na^{2}+a+1=0\n\\]\nThis equation does not have any real solutions. Can we expect something similar for the matrix equation? Taking a general matrix, we get:\n\\[\n\\begin{aligned}\n\\begin{bmatrix}a^{2}+bc & ab+bd\\\\\nac+cd & bc+d^{2}\n\\end{bmatrix}+\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}+\\begin{bmatrix}1 & 0\\\\\n0 & 1\n\\end{bmatrix} & =\\begin{bmatrix}a^{2}+bc+a+1 & ab+bd+b\\\\\nac+cd+c & bc+d^{2}+d+1\n\\end{bmatrix}\n\\end{aligned}\n\\]\nSetting this to the zero matrix:\n\\[\n\\begin{aligned}\na^{2}+a+1+bc & =0\\\\\nb(a+d+1) & =0\\\\\nc(a+d+1) & =0\\\\\nd^{2}+d+1+bc & =0\n\\end{aligned}\n\\]\nIf \\(a+d+1\\neq0\\), then \\(b=c=0\\). This would imply that \\(a^{2}+a+1=d^{2}+d+1=0\\), which is impossible for real numbers \\(a,d\\). Therefore, \\(a+d+1=0\\). Equating the first and last equations, we get:\n\\[\na^{2}+a+1=d^{2}+d+1\\implies(a-d)(a+d+1)=0.\n\\]\nWe see that \\(a+d+1=0\\) will take care of the second and third equations. We now take up the first equation:\n\\[\n\\begin{aligned}\na^{2}+a+1+bc & =0\\\\\n\\left(a+\\frac{1}{2}\\right)^{2}+\\frac{3}{4}+bc & =0\\\\\n\\left(a+\\frac{1}{2}\\right)^{2} & =-\\left(\\frac{3}{4}+bc\\right)\n\\end{aligned}\n\\]\nWe can use this to get one set of values:\n\\[\na=-\\frac{1}{2},b=3,c=-\\frac{1}{4},d=-\\frac{1}{2}\n\\]\nThe resulting matrix is:\n\\[\n\\begin{bmatrix}-\\frac{1}{2} & 3\\\\\n\\\\\\frac{-1}{4} & -\\frac{1}{2}\n\\end{bmatrix}\n\\]\nWe can characterize all possible solutions here. This is left as an exercise to the reader.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html",
+    "title": "Question-6",
+    "section": "",
+    "text": "\\(A\\) is a square matrix of order \\(2\\).\nLet \\(A=\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\). We can now compute \\(A^{2}\\):\n\\[\n\\begin{aligned}\nA^{2} & =\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\\\\n& =\\begin{bmatrix}a^{2}+bc & ab+bd\\\\\nac+cd & bc+d^{2}\n\\end{bmatrix}\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html#a20",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html#a20",
+    "title": "Question-6",
+    "section": "\\(A^{2}=0\\)",
+    "text": "\\(A^{2}=0\\)\nIf \\(A^{2}=0\\), then:\n\\[\n\\begin{aligned}\na^{2}+bc & =0\\\\\nb(a+d) & =0\\\\\nc(a+d) & =0\\\\\nd^{2}+bc & =0\n\\end{aligned}\n\\]\nOne solution is to have \\(a=b=c=d=0\\). But this is not the only one. The presence of \\(a+d\\) in two equations suggests that it might be useful to set \\(a+d=0\\). We can set \\(a=1,d=-1\\). Since \\(bc\\) appears in two equations, we can set \\(b=1,c=-1\\). We have \\(A=\\begin{bmatrix}1 & 1\\\\\n-1 & -1\n\\end{bmatrix}.\\) Verify that \\(A^{2}=0\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html#a2i",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html#a2i",
+    "title": "Question-6",
+    "section": "\\(A^{2}=I\\)",
+    "text": "\\(A^{2}=I\\)\nMoving to \\(A^{2}=I\\), we have to solve the following system:\n\\[\n\\begin{aligned}\na^{2}+bc & =1\\\\\nb(a+d) & =0\\\\\nc(a+d) & =0\\\\\nd^{2}+bc & =1\n\\end{aligned}\n\\]\nWe can set \\(a=1,d=-1\\) and \\(b=d=0\\). This results in \\(A=\\begin{bmatrix}1 & 0\\\\\n0 & -1\n\\end{bmatrix}\\). Verify that \\(A^{2}=I\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html#insights",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html#insights",
+    "title": "Question-6",
+    "section": "Insights",
+    "text": "Insights\nWe can therefore conclude that \\(A^{2}=0\\) admits solutions other than \\(A=0\\) and \\(A^{2}=I\\) admits solutions other than \\(A=\\pm I\\). This question is insightful for the following reason. Consider the corresponding equations in \\(\\mathbb{R}\\):\n\\[\nx^{2}=0\\text{ and }x^{2}=1\n\\]\n\\(x=0\\) is the only solution to the first equation and \\(x=\\pm1\\) are the only two solutions to the second. This shows the difference between simple algebraic equations in one variable and their matrix counterparts.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-7.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-7.html",
+    "title": "Question-7",
+    "section": "",
+    "text": "\\(A\\) is a square matrix whose columns are \\(C_{1}\\) and \\(C_{2}\\) and \\(B=\\begin{bmatrix}b_{11} & b_{12}\\\\\nb_{21} & b_{22}\n\\end{bmatrix}\\). What are the first and second columns of \\(AB\\)?\n\nWe have \\(A=\\begin{bmatrix}\\vert & \\vert\\\\\nC_{1} & C_{2}\\\\\n\\vert & \\vert\n\\end{bmatrix}\\). Let us try to understand what happens when we multiply \\(A\\) with a vector \\(x=\\begin{bmatrix}x_{1}\\\\\nx_{2}\n\\end{bmatrix}\\). We have:\n\\[\nAx=x_{1}C_{1}+x_{2}C_{2}\n\\]\nWe see that \\(Ax\\) is a linear combination of the columns of the matrix \\(A\\), with the coefficients coming from the vector.\nThe first column of \\(AB\\) is equal to the product of \\(A\\) and the first column of \\(B\\):\n\\[\nb_{11}C_{1}+b_{21}C_{2}\n\\]\nThe second column of \\(AB\\) is equal to the product of \\(A\\) and the second column of \\(B\\):\n\\[\nb_{12}C_{1}+b_{22}C_{2}\n\\]\nRemark: The product of a matrix and a vector is a linear combination of the columns. This is a very important result and will make an appearance throughout the course.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-7"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-8.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-8.html",
+    "title": "Question-8",
+    "section": "",
+    "text": "Find out the determinant of the following matrix:\n\\[\n\\begin{bmatrix}1 & a & bc\\\\\n1 & b & ca\\\\\n1 & c & ab\n\\end{bmatrix}\n\\]\n\n\\(R_{2}\\rightarrow R_{2}-R_{1}\\)\n\\[\n\\begin{bmatrix}1 & a & bc\\\\\n0 & b-a & c(a-b)\\\\\n1 & c & ab\n\\end{bmatrix}\n\\]\n\\(R_{3}\\rightarrow R_{3}-R_{1}\\)\n\\[\n\\begin{bmatrix}1 & a & bc\\\\\n0 & b-a & c(a-b)\\\\\n0 & c-a & b(a-c)\n\\end{bmatrix}\n\\]\nBoth these operations leave the determinant unchanged. We can now expand the determinant along the first column:\n\\[\n\\begin{aligned}\n\\begin{vmatrix}1 & a & bc\\\\\n1 & b & ca\\\\\n1 & c & ab\n\\end{vmatrix} & =b(b-a)(a-c)-c(c-a)(a-b)\\\\\n\\\\ & =(a-b)(c-a)(b-c)\\\\\n\\\\ & =(a-b)(b-c)(c-a)\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.4",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-3.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-3.html",
+    "title": "Question-3",
+    "section": "",
+    "text": "Let \\(A\\) be a \\(2\\times2\\) matrix, which is given as \\(\\begin{bmatrix}a_{11} & a_{12}\\\\\na_{21} & a_{22}\n\\end{bmatrix}\\). Consider the following matrices:\n\\[\n\\begin{aligned}\nB & =\\begin{bmatrix}a_{11}-a_{21} & a_{12}-a_{22}\\\\\na_{21} & a_{22}\n\\end{bmatrix},C=\\begin{bmatrix}a_{11}-a_{12} & a_{12}\\\\\na_{21}-a_{22} & a_{22}\n\\end{bmatrix}\\\\\n\\\\D & =\\begin{bmatrix}a_{11}+a_{21} & a_{12}-a_{22}\\\\\na_{21} & a_{22}\n\\end{bmatrix},E=\\begin{bmatrix}a_{11}-a_{21} & a_{12}+a_{22}\\\\\na_{21} & a_{22}\n\\end{bmatrix}\n\\end{aligned}\n\\]\nSelect all matrices that have the same determinant as that of matrix \\(A\\).\n\n\n\\(B\\) is obtained by performing the operation \\(R_{1}\\rightarrow R_{1}-R_{2}\\) on \\(A\\).\n\\(C\\) is obtained by performing the operation \\(C_{1}\\rightarrow C_{1}-C_{2}\\) on \\(A\\).\n\nWe therefore have \\(|B|=|C|=|A|\\). There is no relationship between \\(|D|\\), \\(|E|\\) and \\(|A|\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.4",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-10.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-10.html",
+    "title": "Question-10",
+    "section": "",
+    "text": "Find the determinant of the matrix given below:\n\\[\n\\begin{bmatrix}a & b & c\\\\\nb & c & a\\\\\nc & a & b\n\\end{bmatrix}\n\\]\n\n\\[\n\\begin{aligned}\n\\begin{vmatrix}a & b & c\\\\\nb & c & a\\\\\nc & a & b\n\\end{vmatrix} & =\\begin{vmatrix}a+b+c & a+b+c & a+b+c\\\\\nb & c & a\\\\\nc & a & b\n\\end{vmatrix}\\\\\n\\\\ & =(a+b+c)\\begin{vmatrix}1 & 1 & 1\\\\\nb & c & a\\\\\nc & a & b\n\\end{vmatrix}\\\\\n\\\\ & =(a+b+c)\\begin{vmatrix}1 & 0 & 0\\\\\nb & c-b & a-b\\\\\nc & a-c & b-c\n\\end{vmatrix}\\\\\n\\\\ & =(a+b+c)[-(b-c)^{2}-(a-b)(a-c)]\\\\\n\\\\ & =(a+b+c)[-b^{2}-c^{2}+2bc-a^{2}+ac+ab-bc]\\\\\n\\\\ & =(a+b+c)[ab+bc+ca-a^{2}-b^{2}-c^{2}]\n\\end{aligned}\n\\]\nThese are the operations:\n\nFirst we start with \\(R_{1}\\rightarrow R_{1}+R_{2}+R_{3}\\).\nThis produces a common factor \\((a+b+c)\\) in the first row which we are moving out.\nWe now move to the columns. We perform \\(C_{2}\\rightarrow C_{2}-C_{1}\\) followed by \\(C_{3}\\rightarrow C_{3}-C_{1}\\).\nWe now have enough number of zeros and we expand the determinant along the first row.\nThe rest is just basic algebra.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.4",
+      "Question-10"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-8.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-8.html",
+    "title": "Question-8",
+    "section": "",
+    "text": "Let \\(v\\) be a solution of the systems \\(A_{1}x=b\\) and \\(A_{2}x=b\\). Construct two systems that have \\(v\\) as a solution.\n\nAs before, we can add these two systems to begin with. Since \\(v\\) is a solution to both systems:\n\\[\n\\begin{aligned}\nA_{1}v & =b\\\\\nA_{2}v & =b\\\\\n\\implies A_{1}v+A_{2}v & =2b\\\\\n\\implies(A_{1}+A_{2})v & =2b\n\\end{aligned}\n\\]\nThus, \\(v\\) is a solution to the system \\((A_{1}+A_{2})x=2b\\). Next, subtracting the two systems:\n\\[\n\\begin{aligned}\nA_{1}v & =b\\\\\nA_{2}v & =b\\\\\n\\implies A_{1}v-A_{2}v & =0\\\\\n\\implies(A_{1}-A_{2})v & =0\n\\end{aligned}\n\\]\nThus, \\(v\\) is a solution to the system \\((A_{1}-A_{2})x=0\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-1.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-1.html",
+    "title": "Question-1",
+    "section": "",
+    "text": "Consider the following system of linear equations:\n\\[\n\\begin{aligned}\n-2x_{1}+3x_{2}+x_{3} & =1\\\\\n-x_{1}+x_{3} & =0\\\\\n2x_{2} & =5\n\\end{aligned}\n\\]\n\nConvert the system into the form \\(Ax=b\\).\nSolve the system.\n\n\nWe have:\n\\[\nA=\\begin{bmatrix}-2 & 3 & 1\\\\\n-1 & 0 & 1\\\\\n0 & 2 & 0\n\\end{bmatrix},\\,\\,\\,x=\\begin{bmatrix}x_{1}\\\\\nx_{2}\\\\\nx_{3}\n\\end{bmatrix},\\,\\,\\,b=\\begin{bmatrix}1\\\\\n0\\\\\n5\n\\end{bmatrix}\n\\]\nFrom the last equation, we see that \\(x_{2}=\\frac{5}{2}\\). The second equation shows that \\(x_{1}=x_{3}\\). Using these two facts in equation-(1), we get \\(x_{1}=x_{3}=3x_{2}-1=\\frac{13}{2}\\). The solution is unique and is given by \\(\\left(\\frac{13}{2},\\frac{5}{2},\\frac{13}{2}\\right)\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-1"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-7.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-7.html",
+    "title": "Question-7",
+    "section": "",
+    "text": "Let \\(x_{1}\\) and \\(x_{2}\\) be solutions of the system \\(Ax=b\\). Consider the vectors \\(x_{1}+x_{2}\\) and \\(x_{1}-x_{2}\\). These two vectors are the solutions to which system?\n\nSince \\(x_{1}\\) and \\(x_{2}\\) are solutions to \\(Ax=b\\), \\(Ax_{1}=Ax_{2}=b\\). We can now perform two operations. The first is adding:\n\\[\n\\begin{aligned}\nAx_{1}+Ax_{2} & =2b\\\\\nA(x_{1}+x_{2}) & =2b\n\\end{aligned}\n\\]\nThus, \\(x_{1}+x_{2}\\) is a solution to the system \\(Ax=2b\\). Next, subtracting:\n\\[\n\\begin{aligned}\nAx_{1}-Ax_{2} & =0\\\\\nA(x_{1}-x_{2}) & =0\n\\end{aligned}\n\\]\nThus, \\(x_{1}-x_{2}\\) is a solution to the system \\(Ax=0\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-7"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-3.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-3.html",
+    "title": "Question-3",
+    "section": "",
+    "text": "If all the elements of a \\(n\\times n\\) matrix \\(A\\) are the same, find the determinant of \\(A\\) and \\(A+A^{T}\\).\n\nWe can perform the row operation \\(R_{1}\\rightarrow R_{1}-R_{2}\\). This would leave the determinant unchanged and will result in a zero row. Thus \\(|A|=0\\). Since \\(A+A^{T}=2A\\) for this matrix, \\(|A+A^{T}|=0\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.5",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-9.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-9.html",
+    "title": "Question-9",
+    "section": "",
+    "text": "Suppose \\(A=\\begin{bmatrix}4 & -1 & 3\\\\\n2 & 0 & 1\\\\\n3 & -2 & 0\n\\end{bmatrix}\\). Find the determinant of the cofactor matrix of \\(A\\).\n\nWe have the following relation:\n\\[\nA \\cdot \\text{adj}(A)=\\text{adj}(A)\\cdot A=\\text{det}(A)\\cdot I\n\\]\nWe also know that \\(\\text{adj}(A)=C^{T}\\), where \\(C\\) is the cofactor matrix. Therefore, \\(|\\text{adj}(A)|=\\text{det}|C^{T}|=\\text{det}|C|\\). It is enough if we compute the determinant of the adjugate:\n\\[\n\\begin{aligned}\nA\\cdot\\text{adj}(A) & =\\text{det}(A)\\cdot I\\\\\n\\implies\\text{det}(A)\\cdot\\text{det}(\\text{adj}(A)) & =\\text{det}(A)^{3}\\\\\n\\implies\\text{det}(\\text{adj}(A)) & =\\text{det}(A)^{2} & \\text{det}(A)\\neq0\n\\end{aligned}\n\\]\nLet us now compute \\(\\text{det}(A)\\):\n\\[\n\\begin{aligned}\n\\begin{vmatrix}4 & -1 & 3\\\\\n2 & 0 & 1\\\\\n3 & -2 & 0\n\\end{vmatrix} & =4\\times(0+2)+1(0-3)+3(-4-0)\\\\\n& =8-3-12\\\\\n& =-7\n\\end{aligned}\n\\]\nSo the determinant of the cofactor matrix is \\(49\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.5",
+      "Question-9"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-6.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-6.html",
+    "title": "Question-6",
+    "section": "",
+    "text": "Let \\(A,B,C\\) be three matrices of order \\(3\\). Comment on the truth value of the following statements:\n\n\\(\\text{det}(ABC)=\\text{det}(A)\\text{det}(B)\\text{det}(C)\\)\n\\(\\text{det}\\left(A^{3}\\right)=\\left(\\text{det}(A)\\right)^{3}\\)\n\\(\\text{det}(A+B+C)=\\text{det}(A)+\\text{det}(B)+\\text{det}(C)\\)\n\\(\\text{det}\\left(AB^{T}\\right)=\\text{det}(A)\\text{det}(B)\\)\n\n\n(1) We have:\n\\[\n\\begin{aligned}\n\\text{det}(ABC) & =\\text{det}((AB)C)\\\\\n& =\\text{det}(AB)\\text{det}(C)\\\\\n& =\\text{det}(A)\\text{det}(B)\\text{det}(C)\n\\end{aligned}\n\\]\n(2) Using the previous result and setting \\(A=B=C\\) shows that \\(\\text{det}(A^{3})=\\text{det}(A)^{3}\\).\n(3) This is not true. Here is a counter-example:\n\\[\n\\begin{aligned}\nA=B=C= & I\\\\\n\\implies A+B+C & =3I\\\\\n\\implies\\text{det}(A+B+C) & =27\\\\\n\\implies\\text{det}(A)+\\text{det}(B)+\\text{det}(C) & =3\n\\end{aligned}\n\\]\n(4) This result is true.\n\\[\n\\begin{aligned}\n\\text{det}(AB^{T}) & =\\text{det}(A)\\text{det}(B^{T})=\\text{det}(A)\\text{det}(B)\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.5",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-6.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-6.html",
+    "title": "Question-6",
+    "section": "",
+    "text": "Let the reduced row echelon form of a matrix \\(A\\) be:\n\\[\n\\begin{bmatrix}1 & 0 & -1\\\\\n0 & 1 & 1\n\\end{bmatrix}\n\\]\nThe first and the third columns of \\(A\\) are \\(\\begin{bmatrix}-1\\\\\n1\n\\end{bmatrix}\\) and \\(\\begin{bmatrix}2\\\\\n-1\n\\end{bmatrix}\\) respectively. Find the second column of \\(A\\) and thereby the complete matrix.\n\nLet the matrix \\(A\\) be:\n\\[\n\\begin{bmatrix}-1 & a & 2\\\\\n1 & b & -1\n\\end{bmatrix}\n\\]\nWe can start row reduction:\n\\[\n\\begin{aligned}\n\\begin{bmatrix}-1 & a & 2\\\\\n1 & b & -1\n\\end{bmatrix} & \\rightarrow\\begin{bmatrix}-1 & a & 2\\\\\n0 & a+b & 1\n\\end{bmatrix}\n\\end{aligned}\n\\]\n\\[\n\\begin{aligned}\n\\begin{bmatrix}-1 & a & 2\\\\\n0 & a+b & 1\n\\end{bmatrix} & \\rightarrow\\begin{bmatrix}1 & -a & -2\\\\\n0 & a+b & 1\n\\end{bmatrix}\n\\end{aligned}\n\\]\nAt this stage, we have to decide if we can divide the second row by \\(a+b\\). This can be done if \\(a+b\\neq0\\). This is the case as \\(a+b=0\\) would mean that the second column is no longer a pivot column.\n\\[\n\\begin{bmatrix}1 & -a & -2\\\\\n0 & a+b & 1\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}1 & -a & -2\\\\\n0 & 1 & \\cfrac{1}{a+b}\n\\end{bmatrix}\n\\]\nIf \\(a=0\\), the matrix becomes:\n\\[\n\\begin{bmatrix}1 & 0 & -2\\\\\n0 & 1 & \\cfrac{1}{b}\n\\end{bmatrix}\n\\]\nThis is in RREF, but no matter what value we choose for \\(b\\), we can never make it equal to the RREF given in the question. So \\(a\\neq0\\) and we can proceed with elimination:\n\\[\n\\begin{bmatrix}1 & -a & -2\\\\\n0 & 1 & \\cfrac{1}{a+b}\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}1 & 0 & \\cfrac{-a-2b}{a+b}\\\\\n\\\\0 & 1 & \\cfrac{1}{a+b}\n\\end{bmatrix}\n\\]\nWe can now do a direct comparison:\n\\[\n\\begin{aligned}\na+b & =1\\\\\n-a-2b & =-1\n\\end{aligned}\n\\]\nFrom this, we get \\(a=1,b=0\\). Thus the matrix \\(A\\) is:\n\\[\n\\begin{bmatrix}1 & 1 & 2\\\\\n1 & 0 & -1\n\\end{bmatrix}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.5",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-2.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-2.html",
+    "title": "Question-2",
+    "section": "",
+    "text": "Comment on the truth value of the following statements:",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.5",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-2.html#row-echelon-form",
+    "href": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-2.html#row-echelon-form",
+    "title": "Question-2",
+    "section": "Row echelon form",
+    "text": "Row echelon form\nThe row echelon form of a matrix is not unique. As an example, consider the following matrix:\n\\[\nA_{1}=\\begin{bmatrix}1 & 1\\\\\n0 & 2\n\\end{bmatrix}\n\\]\nDividing the second row by \\(2\\) turns \\(A\\) into a matrix in row echelon form:\n\\[\nA_{2}=\\begin{bmatrix}1 & 1\\\\\n0 & 1\n\\end{bmatrix}\n\\]\nBut this is not the only one possible. For instance, we could do a perfectly valid but useless transformation of adding the second row to the first row to give:\n\\[\nA_{3}=\\begin{bmatrix}1 & 2\\\\\n0 & 1\n\\end{bmatrix}\n\\]\n\\(A_{3}\\) is still in row echelon form. We could turn around and say that both \\(A_{3}\\) and \\(A_{1}\\) can be reduced to \\(A_{2}\\). Thus, two unequal matrices could share a common row echelon form.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.5",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-2.html#reduced-row-echelon-form",
+    "href": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-2.html#reduced-row-echelon-form",
+    "title": "Question-2",
+    "section": "Reduced row echelon form",
+    "text": "Reduced row echelon form\nThe reduced row echelon form of a matrix is unique. The proof is slightly involved and requires some concepts that are yet to be introduced. The interested reader can take a look at Topics/Linear Algebra/RREF in the sidebar.\n\nFor a diagonal matrix with non-zero diagonal entries, we can divide each row by the corresponding entry and reduce it to the identity matrix. For a non-zero scalar matrix, we can divide each row by the non-zero scalar associated with it to get the identity matrix. We see that the RREF of both matrices is the identity.\nNote that both matrices discussed here are invertible. In fact, it can be shown that the RREF of any invertible matrix is the identity matrix.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.5",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-2.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-2.html",
+    "title": "Question-2",
+    "section": "",
+    "text": "Find the inverse of the following matrix:\n\\[\nA=\\begin{bmatrix}2 & -1 & 0\\\\\n1 & 0 & -1\\\\\n0 & 1 & -1\n\\end{bmatrix}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.3",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-2.html#method-1",
+    "href": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-2.html#method-1",
+    "title": "Question-2",
+    "section": "Method-1",
+    "text": "Method-1\nWe reduce \\(A\\) to its RREF while simultaneously applying these operations to the identity matrix on the right:\n\\[\n\\begin{aligned}\n\\begin{bmatrix}2 & -1 & 0\\\\\n1 & 0 & -1\\\\\n0 & 1 & -1\n\\end{bmatrix} &  & \\begin{bmatrix}1 & 0 & 0\\\\\n0 & 1 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix}\\\\\n\\\\\\begin{bmatrix}0 & -1 & 2\\\\\n1 & 0 & -1\\\\\n0 & 1 & -1\n\\end{bmatrix} &  & \\begin{bmatrix}1 & -2 & 0\\\\\n0 & 1 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix}\\\\\n\\\\\\begin{bmatrix}1 & 0 & -1\\\\\n0 & -1 & 2\\\\\n0 & 1 & -1\n\\end{bmatrix} &  & \\begin{bmatrix}0 & 1 & 0\\\\\n1 & -2 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix}\\\\\n\\\\\\begin{bmatrix}1 & 0 & -1\\\\\n0 & -1 & 2\\\\\n0 & 0 & 1\n\\end{bmatrix} &  & \\begin{bmatrix}0 & 1 & 0\\\\\n1 & -2 & 0\\\\\n1 & -2 & 1\n\\end{bmatrix}\\\\\n\\\\\\begin{bmatrix}1 & 0 & -1\\\\\n0 & 1 & -2\\\\\n0 & 0 & 1\n\\end{bmatrix} &  & \\begin{bmatrix}0 & 1 & 0\\\\\n-1 & 2 & 0\\\\\n1 & -2 & 1\n\\end{bmatrix}\\\\\n\\\\\\begin{bmatrix}1 & 0 & -1\\\\\n0 & 1 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix} &  & \\begin{bmatrix}0 & 1 & 0\\\\\n1 & -2 & 2\\\\\n1 & -2 & 1\n\\end{bmatrix}\\\\\n\\\\\\begin{bmatrix}1 & 0 & 0\\\\\n0 & 1 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix} &  & \\begin{bmatrix}1 & -1 & 1\\\\\n1 & -2 & 2\\\\\n1 & -2 & 1\n\\end{bmatrix}\n\\end{aligned}\n\\]\nWe have:\n\\[\nA^{-1}=\\begin{bmatrix}1 & -1 & 1\\\\\n1 & -2 & 2\\\\\n1 & -2 & 1\n\\end{bmatrix}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.3",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-2.html#method-2",
+    "href": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-2.html#method-2",
+    "title": "Question-2",
+    "section": "Method-2",
+    "text": "Method-2\nAlternatively, we have the cofactor matrix. For the sake of convenience, let us write down \\(A\\) again:\n\\[\nA=\\begin{bmatrix}2 & -1 & 0\\\\\n1 & 0 & -1\\\\\n0 & 1 & -1\n\\end{bmatrix}\n\\]\nFirst for the nine minors:\n\\[\n\\begin{aligned}\nM_{11} & =\\begin{vmatrix}0 & -1\\\\\n1 & -1\n\\end{vmatrix} & M_{12} & =\\begin{vmatrix}1 & -1\\\\\n0 & -1\n\\end{vmatrix} & M_{13} & =\\begin{vmatrix}1 & 0\\\\\n0 & 1\n\\end{vmatrix}\\\\\n& =1 &  & =-1 &  & =1\\\\\n\\\\M_{21} & =\\begin{vmatrix}-1 & 0\\\\\n1 & -1\n\\end{vmatrix} & M_{22} & =\\begin{vmatrix}2 & 0\\\\\n0 & -1\n\\end{vmatrix} & M_{23} & =\\begin{vmatrix}2 & -1\\\\\n0 & 1\n\\end{vmatrix}\\\\\n& =1 &  & =-2 &  & =2\\\\\n\\\\M_{31} & =\\begin{vmatrix}-1 & 0\\\\\n0 & -1\n\\end{vmatrix} & M_{32} & =\\begin{vmatrix}2 & 0\\\\\n1 & -1\n\\end{vmatrix} & M_{33} & =\\begin{vmatrix}2 & -1\\\\\n1 & 0\n\\end{vmatrix}\\\\\n& =1 &  & =-2 &  & =1\n\\end{aligned}\n\\]\nAnd now the cofactor matrix:\n\\[\nC=\\begin{bmatrix}1 & 1 & 1\\\\\n-1 & -2 & -2\\\\\n1 & 2 & 1\n\\end{bmatrix}\n\\]\nThe determinant of \\(A\\) is \\(1\\). Finally, the inverse is:\n\\[\n\\begin{aligned}\nA^{-1} & =\\cfrac{1}{\\text{det}(A)}\\text{adj}(A)\\\\\n& =\\cfrac{1}{\\text{det}(A)}\\cdot C^{T}\\\\\n& =\\begin{bmatrix}1 & -1 & 1\\\\\n1 & -2 & 2\\\\\n1 & -2 & 1\n\\end{bmatrix}\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.3",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-8.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-8.html",
+    "title": "Question-8",
+    "section": "",
+    "text": "Find the adjugate of a general \\(3\\times3\\) diagonal matrix, say \\(D\\). If \\(D=\\text{adj}(D)\\), what can you say about \\(D\\)?\n\nLet \\(D=\\begin{bmatrix}a & 0 & 0\\\\\n0 & b & 0\\\\\n0 & 0 & c\n\\end{bmatrix}\\). The cofactor matrix is given by:\n\\[\n\\begin{aligned}\nC & =\\begin{bmatrix}bc & 0 & 0\\\\\n0 & ca & 0\\\\\n0 & 0 & ab\n\\end{bmatrix}\n\\end{aligned}\n\\]\nWe see that the cofactor matrix is also diagonal. The adjugate is equal to the transpose of the cofactor matrix. Since \\(C\\) is diagonal, \\(\\text{adj}(D)=C\\).\nIf \\(D=\\text{adj}(D)\\), we have:\n\\[\n\\begin{aligned}\na & =bc\\\\\nb & =ca\\\\\nc & =ab\n\\end{aligned}\n\\]\nIf any one of \\(a,b,c\\) is zero, then all three are zero. So we can safely assume that \\(a,b,c\\neq0\\). Plugging the first equation into the second:\n\\[\n\\begin{aligned}\nb & =ca\\\\\n& =bc^{2}\\\\\nb(c^{2}-1) & =0\\\\\nc & =\\pm1\n\\end{aligned}\n\\]\nBy a similar argument, we get \\(a=\\pm1\\) and \\(b=\\pm1\\). We get the following solutions for \\((a,b,c)\\):\n\\[\n\\begin{aligned}\n(1,1,1)\\\\\n(1,-1,-1),(-1,1,-1),(-1,-1,1)\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.3",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-4.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-4.html",
+    "title": "Question-4",
+    "section": "",
+    "text": "Express the following system in matrix-vector form and solve it:\n\\[\n\\begin{aligned}\n0x_{1}+x_{2}+0x_{3}+0x_{4} & =1\\\\\n0x_{1}+0x_{2}+0x_{3}+0x_{4} & =1\\\\\nx_{1}+x_{2}+0x_{3}+0x_{4} & =1\\\\\n0x_{1}+0x_{2}+x_{3}+x_{4} & =1\n\\end{aligned}\n\\]\n\nWe have:\n\\[\nA=\\begin{bmatrix}0 & 1 & 0 & 0\\\\\n0 & 0 & 0 & 0\\\\\n1 & 1 & 0 & 0\\\\\n0 & 0 & 1 & 1\n\\end{bmatrix},\\,\\,\\,\\,x=\\begin{bmatrix}x_{1}\\\\\nx_{2}\\\\\nx_{3}\\\\\nx_{4}\n\\end{bmatrix},\\,\\,\\,\\,b=\\begin{bmatrix}1\\\\\n1\\\\\n1\\\\\n1\n\\end{bmatrix}\n\\]\nWe note that the second row is a zero row in \\(A\\), but the corresponding component in the vector \\(b\\) is non-zero. Hence, this system doesn’t have any solution.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-4"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html",
+    "title": "Question-2",
+    "section": "",
+    "text": "Identify which of the following are in row echelon form and which are in reduced row echelon form. Also identify the pivots along the way.\n\\[\n\\begin{aligned}\nA & =\\begin{bmatrix}0 & 1 & 0\\\\\n1 & 0 & 1\\\\\n0 & 1 & 0\n\\end{bmatrix} & B & =\\begin{bmatrix}-1 & 2 & 0\\\\\n0 & 0 & 1\\\\\n0 & 0 & 0\n\\end{bmatrix} & C & =\\begin{bmatrix}1 & 2 & 0\\\\\n0 & 0 & 1\\\\\n0 & 0 & 0\n\\end{bmatrix}\\\\\n\\\\D & =\\begin{bmatrix}0 & 0 & 0\\\\\n0 & 0 & 0\\\\\n0 & 0 & 0\n\\end{bmatrix} & E & =\\begin{bmatrix}0 & 1 & 3\\\\\n0 & 1 & 1\\\\\n0 & 0 & 1\n\\end{bmatrix} & F & =\\begin{bmatrix}1 & 1 & 0\\\\\n0 & 1 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix}\\\\\n\\\\G & =\\begin{bmatrix}0 & 1 & 3 & -1\\\\\n0 & 0 & 1 & 1\\\\\n0 & 0 & 0 & 1\n\\end{bmatrix} & H & =\\begin{bmatrix}0 & 0 & 0\\\\\n1 & 0 & 0\\\\\n0 & 1 & 0\\\\\n0 & 0 & 0\n\\end{bmatrix} & I & =\\begin{bmatrix}1 & 0 & 0\\\\\n0 & 1 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix}\\\\\n\\\\J & =\\begin{bmatrix}0 & 1 & 0\\\\\n0 & 0 & 1\\\\\n0 & 0 & 0\\\\\n1 & 0 & 0\n\\end{bmatrix} & K & =\\begin{bmatrix}1 & 0 & 0 & -1\\\\\n0 & 1 & 1 & 0\\\\\n0 & 0 & 0 & 0\n\\end{bmatrix} & L & =\\begin{bmatrix}1 & 0 & -1\\\\\n0 & 1 & 1\n\\end{bmatrix}\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#pivot",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#pivot",
+    "title": "Question-2",
+    "section": "Pivot",
+    "text": "Pivot\nThe pivot is the first non-zero entry in a row. As an example, the numbers marked in bold are the pivots:\n\\[\n\\begin{bmatrix}\\boldsymbol{1} & 0 & -1 & 2\\\\\n0 & \\boldsymbol{2} & 1 & 0\\\\\n0 & 0 & 0 & \\boldsymbol{-1}\\\\\n0 & 0 & 0 & 0\n\\end{bmatrix}\n\\]\nEach non-zero row has a pivot. A zero row doesn’t have a pivot. The pivot is also called the leading entry.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#ref",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#ref",
+    "title": "Question-2",
+    "section": "REF",
+    "text": "REF\nFor a matrix to be in row echelon form, the following conditions have to be satisfied:\n\nThe pivot in any row should be to the right of the pivot in the previous row.\nThe pivot is \\(1\\). [this condition is not binding according to some authors, but it is binding for this course]\nAll zero rows should come at the end.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#rref",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#rref",
+    "title": "Question-2",
+    "section": "RREF",
+    "text": "RREF\nFor a matrix to be in reduced row echelon form, the following conditions have to be satisfied. A column that contains a pivot is called a pivot column:\n\nThe matrix should be in row echelon form.\nThe pivot should be the only non-zero entry in a pivot column.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#solutions",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html#solutions",
+    "title": "Question-2",
+    "section": "Solutions",
+    "text": "Solutions\n\\[\nA=\\begin{bmatrix}0 & \\boldsymbol{1} & 0\\\\\n\\boldsymbol{1} & 0 & 1\\\\\n0 & \\boldsymbol{1} & 0\n\\end{bmatrix}\n\\]\n\\(A\\) is not in REF. The pivot in the second row is to the left of the pivot in the first row.\n\\[\nB=\\begin{bmatrix}\\boldsymbol{-1} & 2 & 0\\\\\n0 & 0 & \\boldsymbol{1}\\\\\n0 & 0 & 0\n\\end{bmatrix}\n\\]\n\\(B\\) is not in REF. The pivot in the first row is \\(-1\\).\n\\[\nC=\\begin{bmatrix}\\boldsymbol{1} & 2 & 0\\\\\n0 & 0 & \\boldsymbol{1}\\\\\n0 & 0 & 0\n\\end{bmatrix}\\] \\(C\\) is in RREF. The first and last columns are pivot columns.\n\\[\nD=\\begin{bmatrix}0 & 0 & 0\\\\\n0 & 0 & 0\\\\\n0 & 0 & 0\n\\end{bmatrix}\n\\]\n\\(D\\) is in RREF. It doesn’t have any pivots though.\n\\[\nE=\\begin{bmatrix}0 & \\boldsymbol{1} & 3\\\\\n0 & \\boldsymbol{1} & 1\\\\\n0 & 0 & \\boldsymbol{1}\n\\end{bmatrix}\\] \\(E\\) is not in REF. The pivot in the second row is below the pivot in the first row.\n\\[\nF=\\begin{bmatrix}\\boldsymbol{1} & 1 & 0\\\\\n0 & \\boldsymbol{1} & 0\\\\\n0 & 0 & \\boldsymbol{1}\n\\end{bmatrix}\n\\]\n\\(F\\) is in REF. It is not in RREF as the second pivot column has two non-zero entries.\n\\[\nG=\\begin{bmatrix}0 & \\boldsymbol{1} & 3 & -1\\\\\n0 & 0 & \\boldsymbol{1} & 1\\\\\n0 & 0 & 0 & \\boldsymbol{1}\n\\end{bmatrix}\n\\]\n\\(G\\) is in REF. It is not in RREF since the third and fourth pivot columns have other non-zero entries.\n\\[\nH=\\begin{bmatrix}0 & 0 & 0\\\\\n\\boldsymbol{1} & 0 & 0\\\\\n0 & \\boldsymbol{1} & 0\\\\\n0 & 0 & 0\n\\end{bmatrix}\n\\]\n\\(H\\) is not in REF. The first row is a zero row and for a matrix to be in REF, all zero rows should come at the end.\n\\[\nI=\\begin{bmatrix}\\boldsymbol{1} & 0 & 0\\\\\n0 & \\boldsymbol{1} & 0\\\\\n0 & 0 & \\boldsymbol{1}\n\\end{bmatrix}\\] \\(I\\) is in RREF.\n\\[\nJ=\\begin{bmatrix}0 & \\boldsymbol{1} & 0\\\\\n0 & 0 & \\boldsymbol{1}\\\\\n0 & 0 & 0\\\\\n\\boldsymbol{1} & 0 & 0\n\\end{bmatrix}\n\\]\n\\(J\\) is not in REF. There is a zero row above a non-zero row.\n\\[\nK=\\begin{bmatrix}\\boldsymbol{1} & 0 & 0 & -1\\\\\n0 & \\boldsymbol{1} & 1 & 0\\\\\n0 & 0 & 0 & 0\n\\end{bmatrix}\n\\]\n\\(K\\) is in RREF. Do not be misled by the \\(-1\\) that appears at the end of the first row or the \\(1\\) that appears after the pivot in the second row.\n\\[\nL=\\begin{bmatrix}\\boldsymbol{1} & 0 & -1\\\\\n0 & \\boldsymbol{1} & 1\n\\end{bmatrix}\n\\]\n\\(L\\) is in RREF.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-8.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-8.html",
+    "title": "Question-8",
+    "section": "",
+    "text": "Let \\(Ax=b\\) be a system of linear equations.\n\\[\nA=\\begin{bmatrix}1 & 0 & 0 & 0\\\\\n0 & 0 & 1 & 1\\\\\n0 & 0 & 0 & 0\\\\\n0 & 0 & 0 & 0\n\\end{bmatrix},\\,\\,\\,x=\\begin{bmatrix}x_{1}\\\\\nx_{2}\\\\\nx_{3}\\\\\nx_{4}\n\\end{bmatrix},\\,\\,\\,\\,b=\\begin{bmatrix}b_{1}\\\\\nb_{2}\\\\\nb_{3}\\\\\nb_{4}\n\\end{bmatrix}\n\\]\n\nFind the dependent and independent variables.\nWhen is the system consistent?\nFind out all solutions to this system whenever it is consistent.\n\n\nFirst, note that \\(A\\) is in rref. We first identify the pivots and the pivot columns:\n\\[\n\\begin{bmatrix}\\boldsymbol{1} & 0 & 0 & 0\\\\\n0 & 0 & \\boldsymbol{1} & 1\\\\\n0 & 0 & 0 & 0\\\\\n0 & 0 & 0 & 0\n\\end{bmatrix}\n\\]\nThe first and third columns are pivot columns. Hence, \\(x_{1},x_{3}\\) are dependent and \\(x_{2},x_{4}\\) are independent variables. For the system to be consistent \\(b_{3}=b_{4}=0\\). Let us now work with this special case:\n\\[\nA=\\begin{bmatrix}1 & 0 & 0 & 0\\\\\n0 & 0 & 1 & 1\\\\\n0 & 0 & 0 & 0\\\\\n0 & 0 & 0 & 0\n\\end{bmatrix},\\,\\,\\,x=\\begin{bmatrix}x_{1}\\\\\nx_{2}\\\\\nx_{3}\\\\\nx_{4}\n\\end{bmatrix},\\,\\,\\,\\,b=\\begin{bmatrix}b_{1}\\\\\nb_{2}\\\\\n0\\\\\n0\n\\end{bmatrix}\n\\]\nWe can give arbitrary values to \\(x_{2}\\) and \\(x_{4}\\) and then solve for \\(x_{1}\\) and \\(x_{3}\\):\n\\[\n\\begin{aligned}\nx_{2} & =t_{2}\\\\\nx_{4} & =t_{4}\\\\\nx_{3} & =b_{2}-t_{4}\\\\\nx_{1} & =b_{1}\n\\end{aligned}\n\\]\nThe set of all solutions to the system is given by:\n\\[\nS=\\left\\{ \\left(b_{1},t_{2},b_{2}-t_{4},t_{4}\\right):t_{2},t_{4}\\in\\mathbb{R}\\right\\}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-2.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-2.html",
+    "title": "Question-2",
+    "section": "",
+    "text": "Suppose there exist three square matrices \\(A,D,P\\) of order \\(3\\) such that \\(D=PAP^{-1}\\) and \\(D\\) is diagonal. Find a relationship between \\(|D|\\) and \\(|A|\\). If \\(D=I\\), is it necessary that \\(A\\) is also equal to \\(I\\)?\n\nWe have:\n\\[\n\\begin{aligned}\n|D| & =\\left|PAP^{-1}\\right|\\\\\n& =|P|\\cdot|A|\\cdot\\left|P^{-1}\\right|\\\\\n& =|P|\\cdot|A|\\cdot\\cfrac{1}{|P|}\\\\\n& =|A|\n\\end{aligned}\n\\]\nThus, the determinants of \\(A\\) and \\(D\\) are equal. We now turn to the second part of the question. If \\(D=I\\), then:\n\\[\n\\begin{aligned}\nI & =PAP^{-1}\\\\\nP^{-1}IP & =A\\\\\nP^{-1}P & =A\\\\\nI & =A\n\\end{aligned}\n\\]\nThus, if \\(D=I\\), then \\(A=I\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.1",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-4.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-4.html",
+    "title": "Question-4",
+    "section": "",
+    "text": "Consider the matrix:\n\\[\n\\begin{bmatrix}a & b & c\\\\\nb & c & a\\\\\nc & a & b\n\\end{bmatrix}\n\\]\nIf \\(a+b+c\\) is divisible by \\(6\\), is \\(\\text{det}(A)\\) also divisible by \\(6\\)?\n\nWe can compute the determinant as follows:\n\\[\n\\begin{aligned}\n\\begin{vmatrix}a & b & c\\\\\nb & c & a\\\\\nc & a & b\n\\end{vmatrix} & =\\begin{vmatrix}a+b+c & a+b+c & a+b+c\\\\\nb & c & a\\\\\nc & a & b\n\\end{vmatrix}\\\\\n& =(a+b+c)\\begin{vmatrix}1 & 1 & 1\\\\\nb & c & a\\\\\nc & a & b\n\\end{vmatrix}\\\\\n& =(a+b+c)\\begin{vmatrix}1 & 0 & 0\\\\\nb & c-b & a-b\\\\\nc & a-c & b-c\n\\end{vmatrix}\\\\\n& =(a+b+c)(ab+bc+ca-a^{2}-b^{2}-c^{2})\n\\end{aligned}\n\\]\nThe determinant of the matrix is divisible by \\(a+b+c\\). Therefore, it is also divisible by \\(6\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.1",
+      "Question-4"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/index.html",
+    "href": "courses/Maths-2/index.html",
+    "title": "Maths-2",
+    "section": "",
+    "text": "Some of the resources you will find here:\n\nSolutions to activity questions\nSolutions to practice assignment questions\nNotes on some topics\nLive session notes",
+    "crumbs": [
+      "Courses",
+      "Maths-2"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "My name is Karthik Thiagarajan, a teaching fellow at the BS program in Data Science and Application, IIT Madras. I have been associated with the BS program since its inception in the year 2021. I have a BTech degree in mechanical engineering from IIT Madras. I have been a part of the following courses in varying capacities:\n\nCT\nPython\nMaths-2\nMLF\nMLT\nRL\n\nI maintain the content that I create as a part of these courses here. My Discourse handle is Karthik_POD. You can navigate through the content by using the sidebar."
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-3.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-3.html",
+    "title": "Question-3",
+    "section": "",
+    "text": "Show that \\(\\text{det}(AB)\\) is zero if and only if at least one of \\(\\text{det}(A)\\) and \\(\\text{det}(B)\\) is zero.\n\nIf \\(\\text{det}(AB)=0\\), then \\(\\text{det}(A)\\text{det}(B)=0\\). If the product of two numbers is zero, at least one of them has to be zero. Going the other way, if \\(\\text{det}(A)\\) or \\(\\text{det}(B)\\) is zero, \\(\\text{det}(AB)\\) is zero.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.1",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-10.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-10.html",
+    "title": "Question-10",
+    "section": "",
+    "text": "If the diagonal entries of a \\(3\\times3\\) lower triangular matrix \\(A\\) are \\(1,2,3\\), find the sum of the roots of the equation \\(\\text{det}(A-xI)=0\\), where \\(I\\) is the identity matrix.\n\n\\(A-xI\\) is also lower triangular. Since the determinant of a lower triangular matrix is the product of the diagonal entries, we have:\n\\[\n\\begin{aligned}\n\\text{det}(A-xI) & =(1-x)(2-x)(3-x)\n\\end{aligned}\n\\]\nThe roots of \\(\\text{det}(A-xI)=0\\) are \\(1,2,3\\). So the sum of the roots is equal to \\(6\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.1",
+      "Question-10"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-8.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-8.html",
+    "title": "Question-8",
+    "section": "",
+    "text": "Let \\(A\\) be a real \\(3\\times3\\) matrix:\n\\[\nA=\\begin{bmatrix}C_{1} & C_{2} & C_{3}\\end{bmatrix}\n\\]\nFind the determinant of all the following matrices in terms of \\(|A|\\):\n\\[\n\\begin{aligned}\nA_{1} & =\\begin{bmatrix}C_{1} & C_{2}+5C_{3} & C_{3}\\end{bmatrix}\\\\\nA_{2} & =\\begin{bmatrix}C_{1}+C_{2}+C_{3} & C_{2} & C_{3}\\end{bmatrix}\\\\\nA_{3} & =\\begin{bmatrix}C_{1} & C_{2}+5C_{3} & 0\\end{bmatrix}\\\\\nA_{4} & =\\begin{bmatrix}C_{1}+C_{2} & C_{2}+C_{3} & C_{3}+C_{1}\\end{bmatrix}\n\\end{aligned}\n\\]\n\nSince \\(A_{3}\\) has a zero column, \\(|A_{3}|=0\\).\n\nTo get \\(A_{1}\\), we perform \\(C_{2}\\rightarrow C_{2}+5C_{3}\\).\nTo get \\(A_{2}\\), we perform \\(C_{1}\\rightarrow C_{1}+C_{2}+C_{3}\\)\n\nBoth these operations do not change the determinant. So \\(|A_{1}|=|A_{2}|=|A|\\). \\(A_{4}\\) is slightly tricky:\n\\[\n\\begin{aligned}\n\\begin{vmatrix}C_{1}+C_{2} & C_{2}+C_{3} & C_{3}+C_{1}\\end{vmatrix} & =\\begin{vmatrix}2(C_{1}+C_{2}+C_{3}) & C_{2}+C_{3} & C_{3}+C_{1}\\end{vmatrix}\\\\\n& =2\\begin{vmatrix}C_{1}+C_{2}+C_{3} & C_{2}+C_{3} & C_{3}+C_{1}\\end{vmatrix}\\\\\n& =2\\begin{vmatrix}C_{1} & C_{2}+C_{3} & C_{3}+C_{1}\\end{vmatrix}\\\\\n& =2\\begin{vmatrix}C_{1} & C_{2}+C_{3} & C_{3}\\end{vmatrix}\\\\\n& =2\\begin{vmatrix}C_{1} & C_{2} & C_{3}\\end{vmatrix}\\\\\n& =2|A|\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.1",
+      "Question-8"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-7.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-7.html",
+    "title": "Question-7",
+    "section": "",
+    "text": "Solve the following system using Gaussian elimination.\n\\[\n\\begin{aligned}\n2x_{1}+x_{2} & =3\\\\\nx_{1}+3x_{2} & =4\n\\end{aligned}\n\\]\n\nLet us form the augmented matrix:\n\\[\n\\begin{bmatrix}2 & 1 &  & 3\\\\\n1 & 3 &  & 4\n\\end{bmatrix}\n\\]\nWe now start row reduction:\n\\(R_{1}\\leftrightarrow R_{2}\\)\n\\[\n\\begin{bmatrix}1 & 3 &  & 4\\\\\n2 & 1 &  & 3\n\\end{bmatrix}\n\\]\n\\(R_{2}\\rightarrow R_{2}-2R_{1}\\)\n\\[\n\\begin{bmatrix}1 & 3 &  & 4\\\\\n0 & -5 &  & -5\n\\end{bmatrix}\n\\]\n\\(R_{2}\\rightarrow\\cfrac{-1}{5}R_{2}\\)\n\\[\n\\begin{bmatrix}1 & 3 &  & 4\\\\\n0 & 1 &  & 1\n\\end{bmatrix}\n\\]\nThe matrix is now in REF. We now proceed to get the RREF.\n\\(R_{1}\\rightarrow R_{1}-3R_{2}\\)\n\\[\n\\begin{bmatrix}\\boldsymbol{1} & 0 &  & 1\\\\\n0 & \\boldsymbol{1} &  & 1\n\\end{bmatrix}\n\\]\nWe have transformed \\(Ax=b\\) into \\(Rx=c\\), where \\(R\\) is in RREF. All that remains is to read off the solution here:\n\\[\n\\begin{aligned}\nx_{2} & =1\\\\\nx_{1} & =1\n\\end{aligned}\n\\]\nSince both \\(x_{1}\\) and \\(x_{2}\\) are dependent variables, the solution is unique.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-7"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-6.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-6.html",
+    "title": "Question-6",
+    "section": "",
+    "text": "Suppose a system of linear equations consists of only one equation and four variables:\n\\[\nx_{1}+x_{2}+x_{3}+x_{4}=a\n\\]\nwhere \\(a\\) is a constant. Find out the number of independent variables and find all possible solutions to this system.\n\nWe can form the matrix corresponding to this:\n\\[\n\\begin{bmatrix}\\boldsymbol{1} & 1 & 1 & 1\\end{bmatrix}\n\\]\nThe first column is a pivot column. Hence, \\(x_{1}\\) is a dependent variable. \\(x_{2},x_{3},x_{4}\\) are independent variables. So this equation has three independent variables. To solve the system, we give arbitrary values to the independent variables and then solve for the dependent variable:\n\\[\n\\begin{aligned}\nx_{2} & =t_{2}\\\\\nx_{3} & =t_{3}\\\\\nx_{4} & =t_{4}\\\\\n\\implies x_{1} & =a-(t_{2}+t_{3}+t_{4})\n\\end{aligned}\n\\]\nTherefore, the set of all solutions to this system can be represented by this set:\n\\[\nS=\\left\\{ \\left(a-(t_{2}+t_{3}+t_{4}),t_{2},t_{3},t_{4}\\right)\\,:\\,t_{2},t_{3},t_{4}\\in\\mathbb{R}\\right\\}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-5.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-5.html",
+    "title": "Question-5",
+    "section": "",
+    "text": "Consider the following system of equations:\n\\[\n\\begin{aligned}\n0x_{1}+x_{2}+0x_{3}+0x_{4} & =1\\\\\n0x_{1}+0x_{2}+x_{3}+0x_{4} & =1\n\\end{aligned}\n\\]\nComment on the dependent and independent variables for the above system.\n\nWe can form the matrix corresponding to this system:\n\\[\n\\begin{bmatrix}0 & \\boldsymbol{1} & 0 & 0\\\\\n0 & 0 & \\boldsymbol{1} & 0\n\\end{bmatrix}\n\\]\nThe second and third columns are pivot columns. Hence \\(x_{2}\\) and \\(x_{3}\\) are dependent variables. \\(x_{1}\\) and \\(x_{4}\\) are independent variables.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.4",
+      "Question-5"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-4.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-4.html",
+    "title": "Question-4",
+    "section": "",
+    "text": "If \\(A\\) is invertible, does the system \\(\\text{adj}(A)x=b\\) have a solution? If yes, find the solution. Is it unique?\n\nWe have:\n\\[\nA\\cdot\\text{adj}(A)=\\text{det}(A)\\cdot I\n\\]\nSince \\(A\\) is invertible, \\(A^{-1}\\) exists. We can pre-multiply both sides of the above equation by \\(A^{-1}\\) to get:\n\\[\n\\begin{aligned}\nA^{-1}A\\cdot\\text{adj}(A) & =\\text{det}(A)A^{-1}\\\\\n\\implies\\text{adj}(A) & =\\text{det}(A)A^{-1}\n\\end{aligned}\n\\]\nNotice that \\(\\text{adj}(A)\\) is just a non-zero multiple of \\(A^{-1}\\). So \\(\\text{adj}(A)\\) is also invertible. Its inverse will be \\(\\cfrac{A}{\\text{det}(A)}\\). Now:\n\\[\n\\begin{aligned}\n\\text{adj}(A)x & =b\\\\\n\\text{det}(A)A^{-1}x & =b\\\\\nx & =\\cfrac{Ab}{\\text{det}(A)}\n\\end{aligned}\n\\]\nTherefore, \\(\\cfrac{Ab}{\\text{det}(A)}\\) is the unique solution to the system \\(\\text{adj}(A)x=b\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.3",
+      "Question-4"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-9.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-9.html",
+    "title": "Question-9",
+    "section": "",
+    "text": "What are the consequences of a square matrix being equal to its inverse?\n\n\nWe have \\(A=A^{-1}\\). Multiplying both sides by \\(A\\), we get \\(A^{2}=I\\). This is the first observation.\nSince \\(\\text{det}(A^{-1})=\\frac{1}{\\text{det}(A)}\\), we have:\n\n\\[\n\\text{det}(A)^{2}=1\\implies\\text{det}(A)=\\pm1\n\\]\n\n\\(A=\\pm I\\) are two obvious solutions to \\(A^{2}=I\\). But these two are not the only matrices. Let us quickly construct a non-trivial solution:\n\n\\[\n\\begin{aligned}\nA & =\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\\\\nA^{2} & =\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\begin{bmatrix}a & b\\\\\nc & d\n\\end{bmatrix}\\\\\n& =\\begin{bmatrix}a^{2}+bc & b(a+d)\\\\\nc(a+d) & d^{2}+bc\n\\end{bmatrix}\\\\\n& =\\begin{bmatrix}1 & 0\\\\\n0 & 1\n\\end{bmatrix}\n\\end{aligned}\n\\]\nWe can set \\(a=1,b=c=0,d=-1\\). Thus the matrix \\(A=\\begin{bmatrix}1 & 0\\\\\n0 & -1\n\\end{bmatrix}\\) satisfies \\(A^{2}=I\\). Besides, note that it is its own inverse and its determinant is \\(-1\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.3",
+      "Question-9"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-7.html",
+    "href": "courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-7.html",
+    "title": "Question-7",
+    "section": "",
+    "text": "Consider the three elementary row operations:\nType-1: Interchanging two rows.\nType-2: Multiplying a row by a non-zero constant.\nType-3: Adding a scalar multiple of a row to another row.\nFor each statement below, prove it if it is correct and provide a counterexample if it isn’t.\n\nIf a matrix \\(A\\) can be obtained from \\(B\\) by a finite number of row operations, then \\(B\\) can be obtained from \\(A\\) by a finite number of row operations.\nThe reduced row echelon form of a matrix cannot be the identity matrix.\nAn upper triangular matrix with all diagonal elements equal to \\(1\\) is in row echelon form.\nThe identity matrix is in reduced row echelon form.\nThe reduced row echelon form of a scalar matrix (other than identity) can be obtained by applying only operations of type 1.\nThe reduced row echelon form of a diagonal matrix (other than identity) can be obtained by applying only operations of type-2.\n\n\n(1) All row operations are reversible. Let us call the matrix \\(A_{1}\\) before the operation and let \\(A_{2}\\) be the matrix after performing the operation.\nType-1: If \\(R_{1}\\) and \\(R_{2}\\) are interchanged in \\(A_{1}\\), we can perform this operation on \\(A_{2}\\) to get back the original matrix \\(A_{1}\\).\nType-2: If \\(R_{1}\\) of \\(A_{1}\\) scaled by a non-zero constant \\(c\\), we can scale \\(R_{1}\\) of \\(A_{2}\\) by \\(\\frac{1}{c}\\) to get back the original matrix \\(A_{1}\\).\nType-3: If \\(R_{1}\\) of \\(A_{1}\\) is replaced by \\(R_{1}+R_{2}\\), we can replace \\(R_{1}\\) of \\(A_{2}\\) by \\(R_{1}-R_{2}\\) to get back the original matrix \\(A_{1}\\).\n(2) This is incorrect. The RREF of a matrix can be the identity matrix. The identity matrix is itself a trivial example. Every invertible matrix has the identity matrix as its RREF.\n(3) This is true. As a concrete example, consider a \\(3\\times3\\) matrix. All the entries not filled below can take arbitrary values:\n\\[\n\\begin{bmatrix}1\\\\\n0 & 1\\\\\n0 & 0 & 1\n\\end{bmatrix}\n\\]\n(4) Yes, the identity matrix is indeed in reduced row echelon form.\n(5) A non-zero scalar matrix is of the form given below (\\(c\\neq0\\)):\n\\[\ncI=\\begin{bmatrix}c & 0 & 0\\\\\n0 & c & 0\\\\\n0 & 0 & c\n\\end{bmatrix}\n\\]\nTo get its RREF, we need type-2 operation of scaling each row by the constant \\(\\frac{1}{c}\\). Type-1 operation is going to be of no use here.\n(6) To reduce a diagonal matrix to its RREF, we may need both type-1 and type-2 operations. This is especially the case if there are any zero entries on the diagonal. For instance:\n\\[\n\\begin{bmatrix}1 & 0 & 0\\\\\n0 & 0 & 0\\\\\n0 & 0 & 1\n\\end{bmatrix}\n\\]\nWe need to perform \\(R_{2}\\leftrightarrow R_{3}\\) to convert the above matrix into its RREF.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 2",
+      "2.5",
+      "Question-7"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/index.html",
+    "href": "courses/Maths-2/AQ/index.html",
+    "title": "Activity Questions",
+    "section": "",
+    "text": "Some of the questions may be presented in a different form compared to what you observe on the portal.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-5.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-5.html",
+    "title": "Question-5",
+    "section": "",
+    "text": "Find the determinant of the following matrix:\n\\[\n\\begin{bmatrix}1 & 0 & 1 & 0\\\\\n0 & 1 & 0 & 1\\\\\n1 & 0 & 0 & 1\\\\\n0 & 0 & 0 & 1\n\\end{bmatrix}\n\\]\n\nWe can expand the determinant along the last row. The determinant of the entire matrix becomes the determinant of the following sub-matrix:\n\\[\n\\begin{bmatrix}1 & 0 & 1\\\\\n0 & 1 & 0\\\\\n1 & 0 & 0\n\\end{bmatrix}\n\\]\nWe can expand this determinant again along the last row, which gives the result \\(-1\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.5",
+      "Question-5"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-10.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-10.html",
+    "title": "Question-10",
+    "section": "",
+    "text": "Suppose \\(A\\) and \\(B\\) are two \\(3\\times3\\) matrices such that \\(\\text{det}(A)=4\\) and \\(B=3A\\), find the value of \\(\\sqrt[3]{\\text{det}(A^{2}B)}\\).\n\nFirst:\n\\[\n\\begin{aligned}\n\\text{det}(B) & =\\text{det}(3A)\\\\\n& =3^{3}\\text{det}(A)\\\\\n& =27\\times4\\\\\n& =108\n\\end{aligned}\n\\]\nNext:\n\\[\n\\begin{aligned}\n\\text{det}(A^{2}B) & =\\text{det}(A)^{2}\\text{det}(B)\\\\\n& =16\\times108\\\\\n& 1728\n\\end{aligned}\n\\]\nFinally, \\(\\sqrt[3]{1728}=12\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.5",
+      "Question-10"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-7.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-7.html",
+    "title": "Question-7",
+    "section": "",
+    "text": "Let \\(A=[\\delta_{ij}]\\) be a matrix of order \\(3\\) such that \\(\\delta_{ij}=\\begin{cases}\n0 & \\text{if }i&gt;j\\\\\nj & \\text{if }i\\leq j\n\\end{cases}\\). Is \\(A\\) upper triangular or lower triangular? Find \\(\\text{det}(A)\\).\n\n\\[\nA=\\begin{bmatrix}1 & 2 & 3\\\\\n0 & 2 & 3\\\\\n0 & 0 & 3\n\\end{bmatrix}\n\\]\n\\(A\\) is upper triangular as all entries below the main diagonal are zero. \\(\\text{det}(A)=1\\times2\\times3=6\\), the product of the diagonal entries since \\(A\\) is upper triangular.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.5",
+      "Question-7"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html",
+    "title": "Question-3",
+    "section": "",
+    "text": "Comment on the truth value of the following statements:",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-1",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-1",
+    "title": "Question-3",
+    "section": "Statement-1",
+    "text": "Statement-1\nGeometrically, it is quite clear that these are the only three possibilities. Algebraically, let us try to understand the case of infinite solutions a little better. Why can’t a particular system have only two solutions, for instance? Let \\(x_{1}\\) and \\(x_{2}\\) be two solutions, then \\((c+1)x_{1}-cx_{2}\\) is also a solution. This is because:\n\\[\n\\begin{aligned}\nA[(c+1)x_{1}-cx_{2}] & =(c+1)Ax_{1}-cAx_{2}\\\\\n& =(c+1)b-cb\\\\\n& =b\n\\end{aligned}\n\\]\nSince \\(c\\) is an arbitrary parameter, we see that there are infinitely many solutions.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-2",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-2",
+    "title": "Question-3",
+    "section": "Statement-2",
+    "text": "Statement-2\nMultiplying each equation by \\(c\\) corresponds to scaling each row of the matrix \\(A\\) by \\(c\\) and scaling each component of the vector \\(b\\) by \\(c\\). Multiplying each row of \\(A\\) by \\(c\\) is the same as multiplying the entire matrix by \\(c\\). Scaling each component of \\(b\\) by \\(c\\) is the same as scaling the vector \\(b\\) by \\(c\\). If \\(x^{*}\\) is a solution of the system \\(Ax=b\\), then:\n\\[\n\\begin{aligned}\nAx^{*} & =b\\\\\ncAx^{*} & =cb\\\\\n(cA)x^{*} & =cb\n\\end{aligned}\n\\]\nNote that the second step is valid only if \\(c\\) is a non-zero constant. We see that the new system is \\((cA)x^{*}=cb\\). The solution of this system is still \\(x^{*}\\). This shows that multiplying all equations by a non-zero constant doesn’t change the solution to the system.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-3",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-3",
+    "title": "Question-3",
+    "section": "Statement-3",
+    "text": "Statement-3\nLet the solution to \\(Ax=b\\) be \\(x^{*}\\). Then, \\(Ax^{*}=b\\).\n\\[\n\\begin{aligned}\nAx^{*} & =b\\\\\ncAx^{*} & =cb\\\\\ncA\\left(\\frac{x^{*}}{c}\\right) & =b\n\\end{aligned}\n\\]\nWe see that \\(\\frac{x^{*}}{c}\\) is a solution to the system \\(cAx=b\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-4",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html#statement-4",
+    "title": "Question-3",
+    "section": "Statement-4",
+    "text": "Statement-4\nThis is just a special case of the previous statement.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-6.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-6.html",
+    "title": "Question-6",
+    "section": "",
+    "text": "Consider a system of linear equations:\n\\[\n\\begin{aligned}\n2x_{1}+3x_{2} & =6\\\\\n-2x_{1}+kx_{2} & =d\\\\\n4x_{1}+6x_{2} & =12\n\\end{aligned}\n\\]\nCome up with all possible values that \\(k\\) and \\(d\\) can take so that the system has:\n\na unique solution\ninfinitely many solutions\nno solution\n\n\nLet us take one more look at the equations. Dividing the third equation by \\(2\\), we get:\n\\[\n\\begin{aligned}\n2x_{1}+3x_{2} & =6\\\\\n-2x_{1}+kx_{2} & =d\\\\\n2x_{1}+3x_{2} & =6\n\\end{aligned}\n\\]\nThe first and last equations are essentially the same. Therefore we only have two equations:\n\\[\n\\begin{aligned}\n2x_{1}+3x_{2} & =6\\\\\n-2x_{1}+kx_{2} & =d\n\\end{aligned}\n\\]\nIt is now convenient to think about this geometrically. For the system to have no solution, these two equations should correspond to two distinct parallel lines. They have the same slope but different intercepts. This happens when:\n\\[\n\\cfrac{2}{-2}=\\cfrac{3}{k}\\neq\\cfrac{6}{d}\n\\]\nThis gives us \\(k=-3\\) and \\(d\\neq-6\\). For the system to have infinitely many solutions, the lines should be identical, which happens when:\n\\[\n\\cfrac{2}{-2}=\\cfrac{3}{k}=\\cfrac{6}{d}\n\\]\nThis gives \\(k=-3\\) and \\(d=-6\\). For the system to have a unique solution, the slopes should be different:\n\\[\n\\cfrac{2}{-2}\\neq\\cfrac{3}{k}\\implies k\\neq-3\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-6"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-9.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-9.html",
+    "title": "Question-9",
+    "section": "",
+    "text": "Consider a system of equations:\n\\[\n\\begin{aligned}\nx_{1}-3x_{2} & =4\\\\\n3x_{1}+kx_{2} & =-12\n\\end{aligned}\n\\]\nwhere \\(k\\in\\mathbb{R}\\). For what value of \\(k\\) does this system have:\n\na unique solution\ninfinitely many solutions\nno solution\n\n\nFor this system to have a unique solution, the slopes of the two equations should be different:\n\\[\n\\cfrac{1}{3}\\neq\\cfrac{-3}{k}\\implies k\\neq-9\n\\]\nFor the system to have infinitely many solutions, the two lines should be identical:\n\\[\n\\cfrac{1}{3}=\\cfrac{-3}{k}=\\cfrac{-1}{3}\n\\]\nThis is not possible, so the system will never have infinitely solutions. For no solution, we need the slopes to be identical and the intercepts to be different:\n\\[\n\\cfrac{1}{3}=\\cfrac{-3}{k}\\neq\\cfrac{-1}{3}\n\\]\nWe have \\(k=-9\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.3",
+      "Question-9"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-2.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-2.html",
+    "title": "Question-2",
+    "section": "",
+    "text": "Consider the two matrices:\n\\[\nA=\\begin{bmatrix}2 & -1 & 1\\\\\n1 & -3 & 4\\\\\n-1 & 0 & 2\n\\end{bmatrix},\\,\\,\\,\\,B=\\begin{bmatrix}1 & 3 & -2\\\\\n0 & 1 & -1\\\\\n3 & 4 & 2\n\\end{bmatrix}\n\\]\nFind \\(\\text{det}(A),\\text{det}(B),\\text{det}(AB),\\text{det}(BA)\\).\n\nThe following solution to find the determinant is unnecessarily long. We can perform a sequence of row operations on \\(A\\):\n\\(R_{3}\\rightarrow R_{3}+R_{2}\\)\n\\[\n\\begin{aligned}\n\\begin{bmatrix}2 & -1 & 1\\\\\n1 & -3 & 4\\\\\n-1 & 0 & 2\n\\end{bmatrix} & \\rightarrow\\begin{bmatrix}2 & -1 & 1\\\\\n1 & -3 & 4\\\\\n0 & -3 & 6\n\\end{bmatrix}\n\\end{aligned}\n\\]\nThis operation doesn’t change the determinant.\n\\(R_{3}\\rightarrow\\frac{-1}{3}R_{3}\\)\n\\[\n\\begin{bmatrix}2 & -1 & 1\\\\\n1 & -3 & 4\\\\\n0 & -3 & 6\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}2 & -1 & 1\\\\\n1 & -3 & 4\\\\\n0 & 1 & -2\n\\end{bmatrix}\n\\]\nThis operation scales the determinant by \\(\\frac{-1}{3}\\).\n\\(R_{1}\\rightarrow R_{1}-2R_{2}\\)\n\\[\n\\begin{bmatrix}2 & -1 & 1\\\\\n1 & -3 & 4\\\\\n0 & 1 & -2\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}0 & 5 & -7\\\\\n1 & -3 & 4\\\\\n0 & 1 & -2\n\\end{bmatrix}\n\\]\nThis operation doesn’t change the determinant.\n\\(R_{1}\\leftrightarrow R_{2}\\)\n\\[\n\\begin{bmatrix}0 & 5 & -7\\\\\n1 & -3 & 4\\\\\n0 & 1 & -2\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}1 & -3 & 4\\\\\n0 & 5 & -7\\\\\n0 & 1 & -2\n\\end{bmatrix}\n\\]\nThis operation scales the determinant by \\(-1\\).\n\\(R_{2}\\rightarrow R_{2}-5R_{3}\\)\n\\[\n\\begin{bmatrix}1 & -3 & 4\\\\\n0 & 5 & -7\\\\\n0 & 1 & -2\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}1 & -3 & 4\\\\\n0 & 0 & 3\\\\\n0 & 1 & -2\n\\end{bmatrix}\n\\]\nThis operation doesn’t change the determinant.\n\\(R_{2}\\rightarrow\\frac{1}{3}R_{2}\\)\n\\[\n\\begin{bmatrix}1 & -3 & 4\\\\\n0 & 0 & 3\\\\\n0 & 1 & -2\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}1 & -3 & 4\\\\\n0 & 0 & 1\\\\\n0 & 1 & -2\n\\end{bmatrix}\n\\]\nThis operation scales the determinant by \\(\\frac{1}{3}\\).\n\\(R_{2}\\leftrightarrow R_{3}\\)\n\\[\n\\begin{bmatrix}1 & -3 & 4\\\\\n0 & 0 & 1\\\\\n0 & 1 & -2\n\\end{bmatrix}\\rightarrow\\begin{bmatrix}1 & -3 & 4\\\\\n0 & 1 & -2\\\\\n0 & 0 & 1\n\\end{bmatrix}\n\\]\nThis operation scales the determinant by \\(-1\\).\nThe final matrix that we have is an upper triangular matrix. The determinant of an upper triangular matrix is the product of its diagonal entries, which is \\(1\\) in this case. So we have:\n\\[\n\\begin{aligned}\n1 & =\\text{det}(A)\\times\\frac{-1}{3}\\times(-1)\\times\\frac{1}{3}\\times(-1)\\\\\n\\text{det}(A) & =-9\n\\end{aligned}\n\\]\nFor \\(\\text{det}(B)\\), we will expand the determinant along the first column:\n\\[\n\\begin{vmatrix}1 & 3 & -2\\\\\n0 & 1 & -1\\\\\n3 & 4 & 2\n\\end{vmatrix}=1(2+4)+3(-3+2)=3\n\\]\nFor \\(\\text{det}(AB)\\), we just use the property that \\(\\text{det}(AB)=\\text{det}(A)\\cdot\\text{det}(B)\\). Thus, we get \\(\\text{det}(AB)=-27\\). \\(\\text{det}(BA)\\) is going to be the same.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.4",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-1.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-1.html",
+    "title": "Question-1",
+    "section": "",
+    "text": "Let \\(A\\) be a \\(3\\times3\\) matrix with non-zero determinant. If \\(\\text{det}(2A)=k\\text{det}(A)\\), find the value of \\(k\\).\n\nIf a row is scaled by a constant, the determinant is scaled by the same constant. When a matrix is scaled by a constant, each row of the determinant is scaled by the same constant. With this, for a \\(n\\times n\\) matrix \\(A\\):\n\\[\n\\begin{aligned}\n\\text{det}(cA) & =c^{n}\\text{det}(A)\n\\end{aligned}\n\\]\nIn this question \\(n=3\\) and \\(c=2\\):\n\\[\n\\text{det}(2A)=8\\text{\\ensuremath{\\cdot}det}(A)\n\\]\nTherefore, \\(k=8\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.4",
+      "Question-1"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-4.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-4.html",
+    "title": "Question-4",
+    "section": "",
+    "text": "Let \\(A=\\begin{bmatrix}a_{11} & a_{12} & a_{13}\\\\\nta_{11}-sa_{31} & ta_{12}-sa_{32} & ta_{13}-sa_{33}\\\\\nra_{31} & ra_{32} & ra_{33}\n\\end{bmatrix}\\) be a matrix and \\(r,s,t\\neq0\\). Find \\(\\text{det}(A)\\).\n\nConsider the matrix \\(B\\):\n\\[\nB=\\begin{bmatrix}a_{11} & a_{12} & a_{13}\\\\\n0 & 0 & 0\\\\\na_{31} & a_{32} & a_{33}\n\\end{bmatrix}\n\\]\nWe can now do the following row operations on \\(B\\):\n\\[\n\\begin{aligned}\nR_{2} & \\rightarrow R_{2}+tR_{1}-sR_{3}\\\\\nR_{3} & \\rightarrow rR_{3}\n\\end{aligned}\n\\]\nThese two row operations will give us \\(A\\). The determinants are related as follows:\n\\[\n\\text{det}(A)=r\\cdot\\text{det}(B)\n\\]\nSince \\(B\\) has a zero row, its determinant is zero. Hence \\(\\text{det}(A)=0\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.4",
+      "Question-4"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-2.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-2.html",
+    "title": "Question-2",
+    "section": "",
+    "text": "What is the relationship between the following matrices?\n\ndiagonal matrix\nscalar matrix\nidentity matrix\n\n\n\nDiagonal, scalar and identity matrices are all square matrices.\nAn identity matrix is also a scalar matrix.\nA scalar matrix is also a diagonal matrix.\n\nIf \\(S\\) is a scalar matrix, then it can be expressed as \\(S=cI\\) for some scalar \\(c\\), where \\(I\\) is the identity matrix of the same order as the scalar matrix.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-2"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-3.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-3.html",
+    "title": "Question-3",
+    "section": "",
+    "text": "Convert the following system of equations into matrix-vector form:\n\\[\n\\begin{aligned}\n7x_{1}+10x_{2}+12x_{3} & =36\\\\\n8x_{1}+4x_{2}-9x_{3} & =11\\\\\n4x_{1}-x_{2}+3x_{3} & =10\n\\end{aligned}\n\\]\n\nThis can be represented as the system \\(Ax=b\\), where:\n\\[\nA=\\begin{bmatrix}7 & 10 & 12\\\\\n8 & 4 & -9\\\\\n4 & -1 & 3\n\\end{bmatrix},\\,\\,\\,,x=\\begin{bmatrix}x_{1}\\\\\nx_{2}\\\\\nx_{3}\n\\end{bmatrix},\\,\\,\\,b=\\begin{bmatrix}36\\\\\n11\\\\\n10\n\\end{bmatrix}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-10.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-10.html",
+    "title": "Question-10",
+    "section": "",
+    "text": "Let \\(A=\\begin{bmatrix}-1 & 2\\\\\n-4 & 7\n\\end{bmatrix}\\) and \\(A^{2}-\\alpha A+I=0\\) for some \\(\\alpha\\in\\mathbb{R}\\). Find the value of \\(\\alpha\\).\n\nWe have:\n\\[\nA^{2}=\\begin{bmatrix}-1 & 2\\\\\n-4 & 7\n\\end{bmatrix}\\begin{bmatrix}-1 & 2\\\\\n-4 & 7\n\\end{bmatrix}=\\begin{bmatrix}-7 & 12\\\\\n-24 & 41\n\\end{bmatrix}\n\\]\nNow:\n\\[\n\\begin{aligned}\nA^{2}-\\alpha A+I & =\\begin{bmatrix}-7 & 12\\\\\n-24 & 41\n\\end{bmatrix}-\\alpha\\begin{bmatrix}-1 & 2\\\\\n-4 & 7\n\\end{bmatrix}+\\begin{bmatrix}1 & 0\\\\\n0 & 1\n\\end{bmatrix}\\\\\n\\\\ & =\\begin{bmatrix}-7+\\alpha+1 & 12-2\\alpha\\\\\n-24+4\\alpha & 41-7\\alpha+1\n\\end{bmatrix}\\\\\n\\\\ & =\\begin{bmatrix}0 & 0\\\\\n0 & 0\n\\end{bmatrix}\n\\end{aligned}\n\\]\nWe can now see that \\(\\boxed{\\alpha=6}\\).",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.2",
+      "Question-10"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-5.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-5.html",
+    "title": "Question-5",
+    "section": "",
+    "text": "The marks obtained by four students in quiz-1, quiz-2 and the end-term exam are given below:\n\n\n\nNames\nQuiz-1\nQuiz-2\nEnd-term\n\n\n\n\nA\n50\n60\n60\n\n\nB\n70\n80\n90\n\n\nC\n80\n90\n100\n\n\nD\n75\n80\n85\n\n\n\nAfter quiz-2, the students are given bonus marks. A, B, C and D are given the bonus marks \\(5,6,1\\) and \\(4\\) respectively.\n\nRepresent the bonus marks as a vector. What kind of a vector would this be?\nCompute the final marks of the students after adding the bonus marks. What is the mathematical operation being performed here?\n\n\nThe current marks of students in quiz-2 is represented by the column vector \\(\\begin{bmatrix}60\\\\\n80\\\\\n90\\\\\n80\n\\end{bmatrix}\\). The bonus marks can also be represented as this column vector: \\(\\begin{bmatrix}5\\\\\n6\\\\\n1\\\\\n4\n\\end{bmatrix}\\). Adding these two vectors will give us the final quiz-2 marks:\n\\[\n\\begin{bmatrix}60\\\\\n80\\\\\n90\\\\\n80\n\\end{bmatrix}+\\begin{bmatrix}5\\\\\n6\\\\\n1\\\\\n4\n\\end{bmatrix}=\\begin{bmatrix}65\\\\\n86\\\\\n91\\\\\n84\n\\end{bmatrix}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-5"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-7.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-7.html",
+    "title": "Question-7",
+    "section": "",
+    "text": "Let \\(v_{1}=(1,0,0),v_{2}=(0,1,0)\\) and \\(v_{3}=(0,0,1)\\) be three vectors and let \\(a,b,c\\) be three real numbers. Express the following vectors in terms of \\(v_{1},v_{2}\\) and \\(v_{3}\\).\n\n\\((a,b,c)\\)\n\\((a,0,c)\\)\n\n\nNotice the following:\n\\[\n\\begin{aligned}\na\\cdot v_{1} & =a\\cdot(1,0,0)=(a,0,0)\\\\\nb\\cdot v_{2} & =b\\cdot(0,1,0)=(0,b,0)\\\\\nc\\cdot v_{3} & =c\\cdot(0,0,1)=(0,0,c)\n\\end{aligned}\n\\]\nTherefore, we have:\n\\[\n\\begin{aligned}\n(a,b,c) & =av_{1}+bv_{2}+cv_{3}\\\\\n(a,0,c) & =av_{1}+cv_{3}\n\\end{aligned}\n\\]\nWe have expressed the vectors \\((a,b,c)\\) and \\((a,0,c)\\) as a linear combination of the vectors \\(v_{1},v_{2}\\) and \\(v_{3}\\). This is a term that you will see throughout the course.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-7"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-9.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-9.html",
+    "title": "Question-9",
+    "section": "",
+    "text": "Let \\(u=(1,1,1)\\) and \\(v=(2,-1,4)\\) be two vectors. If \\(cu+3v=(4,j,k)\\), where \\(c,j,k\\) are real numbers, find the value of \\(c\\), \\(j\\) and \\(k\\).\n\n\\[\n\\begin{aligned}\ncu+3v & =(4,j,k)\\\\\nc(1,1,1)+3(2,-1,4) & =(4,j,k)\\\\\n(c+6,c-3,c+12) & =(4,j,k)\\\\\n\\implies c & =-2\\\\\n\\implies j & =-5\\\\\n\\implies k & =10\n\\end{aligned}\n\\]",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-9"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-3.html",
+    "href": "courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-3.html",
+    "title": "Question-3",
+    "section": "",
+    "text": "The marks obtained by four students in quiz-1, quiz-2 and the end-term exam are given below:\n\n\n\nNames\nQuiz-1\nQuiz-2\nEnd-term\n\n\n\n\nA\n50\n60\n60\n\n\nB\n70\n80\n90\n\n\nC\n80\n90\n100\n\n\nD\n75\n80\n85\n\n\n\nWhat is the mathematical quantity associated with each of the following practical quantities:\n\nThe quiz-1 marks of all students\nAll the marks associated with student B.\n\n\nThe quiz-1 marks of all students represents a column vector. This is usually denoted as:\n\\[\n\\begin{bmatrix}50\\\\\n70\\\\\n80\\\\\n75\n\\end{bmatrix}\n\\]\nThis is the second column in the table. Visually, a column vector is represented vertically. This column vector has \\(4\\) components. Each component corresponds to the quiz-1 marks of one of the students.\nThe marks associated with student B represents a row vector. This is usually denoted as:\n\\[\n\\begin{bmatrix}70 & 80 & 90\\end{bmatrix}\n\\]\nThis is the third column in the table. Visually, a row vector is represented horizontally. This row vector has \\(3\\) components. Each component corresponds to the marks scored by B in an exam.",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Activity Questions",
+      "Week 1",
+      "1.1",
+      "Question-3"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/runs/T2-2024.html#overview",
+    "href": "courses/Maths-2/runs/T2-2024.html#overview",
+    "title": "T2-2024",
+    "section": "Overview",
+    "text": "Overview",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Course Runs",
+      "T2-2024"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/runs/T2-2024.html#schedule",
+    "href": "courses/Maths-2/runs/T2-2024.html#schedule",
+    "title": "T2-2024",
+    "section": "Schedule",
+    "text": "Schedule",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Course Runs",
+      "T2-2024"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/runs/T2-2024.html#lectures",
+    "href": "courses/Maths-2/runs/T2-2024.html#lectures",
+    "title": "T2-2024",
+    "section": "Lectures",
+    "text": "Lectures\n\n\n\nSession\nNotes",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Course Runs",
+      "T2-2024"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/runs/T2-2024.html#aq-and-pa",
+    "href": "courses/Maths-2/runs/T2-2024.html#aq-and-pa",
+    "title": "T2-2024",
+    "section": "AQ and PA",
+    "text": "AQ and PA",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Course Runs",
+      "T2-2024"
+    ]
+  },
+  {
+    "objectID": "courses/Maths-2/runs/T2-2024.html#quizzes",
+    "href": "courses/Maths-2/runs/T2-2024.html#quizzes",
+    "title": "T2-2024",
+    "section": "Quizzes",
+    "text": "Quizzes",
+    "crumbs": [
+      "Courses",
+      "Maths-2",
+      "Course Runs",
+      "T2-2024"
+    ]
+  },
+  {
+    "objectID": "topics/machine_learning/notes/PCA_variants.html",
+    "href": "topics/machine_learning/notes/PCA_variants.html",
+    "title": "PCA Variants",
+    "section": "",
+    "text": "Let \\(X\\) be a data-matrix of dimensions \\(d\\times n\\) with \\(d\\gg n\\). The covariance matrix is of size \\(d\\times d\\). The computational cost of eigen-decomposition of a \\(d\\times d\\) matrix is \\(O(d^{3})\\). So running PCA as it is may be prohibitively large for datasets with a huge number of dimensions. To get around this problem, we make use of the following fact:\n\n\n\n\n\n\nLemma\n\n\n\nIf \\((\\lambda,v)\\) is an eigenpair of \\(X^{T}X\\) with \\(\\lambda\\neq0\\), then \\((\\lambda,Xv)\\) is an eigenpair of \\(XX^{T}\\).\n\n\n\n\n\n\nProof\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\left(X^{T}X\\right)v & =\\lambda v\\\\\nX\\left(X^{T}X\\right)v & =\\lambda(Xv)\\\\\n\\left(XX^{T}\\right)\\left(Xv\\right) & =\\lambda(Xv)\n\\end{aligned}\n\\]\n\n\n\n\n\nIf \\(Xv\\) is non-zero, then \\((\\lambda,Xv)\\) is an eigenpair of \\(XX^{T}\\). \\(Xv\\) is indeed non-zero. If \\(Xv=0\\), then \\(X^{T}Xv=0\\), which would mean that \\(v\\) is an eigenvector of \\(X^{T}X\\) with eigenvalue \\(0\\), which contradicts the fact that \\(\\lambda\\neq0\\).\nThis result is useful because it provides a way to get the eigenpairs of \\(XX^{T}\\) using the eigenpairs of \\(X^{T}X\\). Since \\(X^{T}X\\) is \\(n\\times n\\) and \\(n\\ll d\\), the cost of the eigen-decomposition of \\(X^{T}X\\) would be \\(O(n^{3})\\), which is more efficient than the \\(O(d^{3})\\) for \\(XX^{T}\\).\nLet us now direct our attention to the matrix \\(X^{T}X\\). First, we express \\(X\\) and \\(X^{T}\\) as follows:\n\\[\n\\begin{aligned}\nX & =\\begin{bmatrix}\\vert &  & \\vert\\\\\nx_{1} & \\cdots & x_{n}\\\\\n\\vert &  & \\vert\n\\end{bmatrix} & X^{T}=\\begin{bmatrix}- & x_{1}^{T} & -\\\\\n& \\vdots\\\\\n- & x_{n}^{T} & -\n\\end{bmatrix}\n\\end{aligned}\n\\]\nEach element of \\(X^{T}X\\) then is just the inner product (dot product here) between two data-points. If this is not clear, go back to the usual way of multiplying two matrices. The \\(i^{th}\\) row of \\(X^{T}\\) with the \\(j^{th}\\) row of \\(X\\) combine to give the \\(ij^{th}\\) element of \\(X^{T}X\\):\n\\[\n\\left(X^{T}X\\right)_{ij}=x_{i}^{T}x_{j}\n\\]\nWe call this matrix \\(K\\):\n\\[\nK=X^{T}X\n\\]\nThis is often called the Gram matrix and is the matrix of pairwise inner products between the data-points and is of shape \\(n\\times n\\). Using a suitable algorithm, we can obtain the non-zero eigenvalues and the corresponding eigenvectors of \\(K\\). If the rank of \\(K\\) is \\(r\\), then there will be \\(r\\) non-zero eigenvalues. We can list the eignepairs in decreasing order of eigenvalues as:\n\\[\n(\\lambda_{1},v_{1}),\\cdots,(\\lambda_{r},v_{r})\n\\]\nNote that the eigenvectors are orthonormal here. Specifically, \\(||v_{i}||=1\\). Also note that \\(r\\leq\\min(d,n)\\) and for the specific case we are looking at, that of \\(d\\gg n\\), we have \\(r\\leq n\\). Once we have the eigenpairs of the Gram matrix, we can compute the eigenpairs of \\(XX^{T}\\) using the lemma proved in the beginning:\n\\[\n(\\lambda_{1},Xv_{1}),\\cdots,(\\lambda_{r},Xv_{r})\n\\]\nThese eigenvectors are orthogonal but not yet orthonormal. Hence we need to normalize them. Let us call the \\(i^{th}\\) normalized eigenvectors of \\(XX^{T}\\) \\(w_{i}\\):\n\\[\n\\begin{aligned}\nw_{i} & =\\cfrac{Xv_{i}}{\\left|\\left|Xv_{i}\\right|\\right|}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{v_{i}^{T}X^{T}Xv_{i}}}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{v_{i}^{T}(X^{T}Xv_{i})}}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{v_{i}^{T}(\\lambda_{i}v_{i})}}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{\\lambda_{i}}}\n\\end{aligned}\n\\]\nwhere we have used the fact that \\(v_{i}\\) is a normalized eigenvector of \\(X^{T}X\\) with a non-zero eigenvalue \\(\\lambda_{i}\\). Therefore, the eigenpairs of \\(XX^{T}\\) with normalized eigenvectors are:\n\\[\n\\left(\\lambda_{1},\\cfrac{Xv_{1}}{\\sqrt{\\lambda_{1}}}\\right),\\cdots,\\left(\\lambda_{r},\\cfrac{Xv_{r}}{\\sqrt{\\lambda_{r}}}\\right)\n\\]\nBut we are not interested in just \\(XX^{T}\\), but the covariance matrix \\(C\\), which is \\(C=\\cfrac{1}{n}XX^{T}\\). Scaling a matrix retains the eigenvectors but scales the eigenvalues. So the eigenpairs of \\(C\\) are:\n\\[\n\\left(\\cfrac{\\lambda_{1}}{n},\\cfrac{Xv_{1}}{\\sqrt{\\lambda_{1}}}\\right),\\cdots,\\left(\\cfrac{\\lambda_{r}}{n},\\cfrac{Xv_{r}}{\\sqrt{\\lambda_{r}}}\\right)\n\\]",
+    "crumbs": [
+      "Topics",
+      "Machine Learning",
+      "Notes",
+      "PCA Variants"
+    ]
+  },
+  {
+    "objectID": "topics/machine_learning/notes/PCA_variants.html#datasets-with-huge-dimensions",
+    "href": "topics/machine_learning/notes/PCA_variants.html#datasets-with-huge-dimensions",
+    "title": "PCA Variants",
+    "section": "",
+    "text": "Let \\(X\\) be a data-matrix of dimensions \\(d\\times n\\) with \\(d\\gg n\\). The covariance matrix is of size \\(d\\times d\\). The computational cost of eigen-decomposition of a \\(d\\times d\\) matrix is \\(O(d^{3})\\). So running PCA as it is may be prohibitively large for datasets with a huge number of dimensions. To get around this problem, we make use of the following fact:\n\n\n\n\n\n\nLemma\n\n\n\nIf \\((\\lambda,v)\\) is an eigenpair of \\(X^{T}X\\) with \\(\\lambda\\neq0\\), then \\((\\lambda,Xv)\\) is an eigenpair of \\(XX^{T}\\).\n\n\n\n\n\n\nProof\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\left(X^{T}X\\right)v & =\\lambda v\\\\\nX\\left(X^{T}X\\right)v & =\\lambda(Xv)\\\\\n\\left(XX^{T}\\right)\\left(Xv\\right) & =\\lambda(Xv)\n\\end{aligned}\n\\]\n\n\n\n\n\nIf \\(Xv\\) is non-zero, then \\((\\lambda,Xv)\\) is an eigenpair of \\(XX^{T}\\). \\(Xv\\) is indeed non-zero. If \\(Xv=0\\), then \\(X^{T}Xv=0\\), which would mean that \\(v\\) is an eigenvector of \\(X^{T}X\\) with eigenvalue \\(0\\), which contradicts the fact that \\(\\lambda\\neq0\\).\nThis result is useful because it provides a way to get the eigenpairs of \\(XX^{T}\\) using the eigenpairs of \\(X^{T}X\\). Since \\(X^{T}X\\) is \\(n\\times n\\) and \\(n\\ll d\\), the cost of the eigen-decomposition of \\(X^{T}X\\) would be \\(O(n^{3})\\), which is more efficient than the \\(O(d^{3})\\) for \\(XX^{T}\\).\nLet us now direct our attention to the matrix \\(X^{T}X\\). First, we express \\(X\\) and \\(X^{T}\\) as follows:\n\\[\n\\begin{aligned}\nX & =\\begin{bmatrix}\\vert &  & \\vert\\\\\nx_{1} & \\cdots & x_{n}\\\\\n\\vert &  & \\vert\n\\end{bmatrix} & X^{T}=\\begin{bmatrix}- & x_{1}^{T} & -\\\\\n& \\vdots\\\\\n- & x_{n}^{T} & -\n\\end{bmatrix}\n\\end{aligned}\n\\]\nEach element of \\(X^{T}X\\) then is just the inner product (dot product here) between two data-points. If this is not clear, go back to the usual way of multiplying two matrices. The \\(i^{th}\\) row of \\(X^{T}\\) with the \\(j^{th}\\) row of \\(X\\) combine to give the \\(ij^{th}\\) element of \\(X^{T}X\\):\n\\[\n\\left(X^{T}X\\right)_{ij}=x_{i}^{T}x_{j}\n\\]\nWe call this matrix \\(K\\):\n\\[\nK=X^{T}X\n\\]\nThis is often called the Gram matrix and is the matrix of pairwise inner products between the data-points and is of shape \\(n\\times n\\). Using a suitable algorithm, we can obtain the non-zero eigenvalues and the corresponding eigenvectors of \\(K\\). If the rank of \\(K\\) is \\(r\\), then there will be \\(r\\) non-zero eigenvalues. We can list the eignepairs in decreasing order of eigenvalues as:\n\\[\n(\\lambda_{1},v_{1}),\\cdots,(\\lambda_{r},v_{r})\n\\]\nNote that the eigenvectors are orthonormal here. Specifically, \\(||v_{i}||=1\\). Also note that \\(r\\leq\\min(d,n)\\) and for the specific case we are looking at, that of \\(d\\gg n\\), we have \\(r\\leq n\\). Once we have the eigenpairs of the Gram matrix, we can compute the eigenpairs of \\(XX^{T}\\) using the lemma proved in the beginning:\n\\[\n(\\lambda_{1},Xv_{1}),\\cdots,(\\lambda_{r},Xv_{r})\n\\]\nThese eigenvectors are orthogonal but not yet orthonormal. Hence we need to normalize them. Let us call the \\(i^{th}\\) normalized eigenvectors of \\(XX^{T}\\) \\(w_{i}\\):\n\\[\n\\begin{aligned}\nw_{i} & =\\cfrac{Xv_{i}}{\\left|\\left|Xv_{i}\\right|\\right|}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{v_{i}^{T}X^{T}Xv_{i}}}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{v_{i}^{T}(X^{T}Xv_{i})}}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{v_{i}^{T}(\\lambda_{i}v_{i})}}\\\\\n\\\\ & =\\cfrac{Xv_{i}}{\\sqrt{\\lambda_{i}}}\n\\end{aligned}\n\\]\nwhere we have used the fact that \\(v_{i}\\) is a normalized eigenvector of \\(X^{T}X\\) with a non-zero eigenvalue \\(\\lambda_{i}\\). Therefore, the eigenpairs of \\(XX^{T}\\) with normalized eigenvectors are:\n\\[\n\\left(\\lambda_{1},\\cfrac{Xv_{1}}{\\sqrt{\\lambda_{1}}}\\right),\\cdots,\\left(\\lambda_{r},\\cfrac{Xv_{r}}{\\sqrt{\\lambda_{r}}}\\right)\n\\]\nBut we are not interested in just \\(XX^{T}\\), but the covariance matrix \\(C\\), which is \\(C=\\cfrac{1}{n}XX^{T}\\). Scaling a matrix retains the eigenvectors but scales the eigenvalues. So the eigenpairs of \\(C\\) are:\n\\[\n\\left(\\cfrac{\\lambda_{1}}{n},\\cfrac{Xv_{1}}{\\sqrt{\\lambda_{1}}}\\right),\\cdots,\\left(\\cfrac{\\lambda_{r}}{n},\\cfrac{Xv_{r}}{\\sqrt{\\lambda_{r}}}\\right)\n\\]",
+    "crumbs": [
+      "Topics",
+      "Machine Learning",
+      "Notes",
+      "PCA Variants"
+    ]
+  },
+  {
+    "objectID": "topics/machine_learning/notes/PCA_variants.html#non-linear-datasets",
+    "href": "topics/machine_learning/notes/PCA_variants.html#non-linear-datasets",
+    "title": "PCA Variants",
+    "section": "Non-linear Datasets",
+    "text": "Non-linear Datasets\nMost of the times, datasets are too complex to comfortably fit into a lower dimensional subspace. Datasets are in general structurally non-linear. Vanilla PCA may thus fail to capture a good representation. Or we may have to include a large number of principal components to capture \\(95\\%\\) of the variance, defeating the whole purpose of PCA.\nOne way to get around this problem is to think of a non-linear transformation of the features and hope that the transformed dataset has a linear structure in this larger feature space. This is not too naive an expectation. To see why this might work, consider the following dataset in \\(\\mathbb{R}^{2}\\):\n\n\n\nimage\n\n\nThere is a relationship between \\(x_{2}\\) and \\(x_{1}\\) which can roughly be captured as \\(x_{2}=x_{1}^{2}\\). Consider the transformation below:\n\\[\n\\phi(x_{1},x_{2})=\\begin{bmatrix}0\\\\\nx_{1}\\\\\nx_{1}^{2}-x_{2}\n\\end{bmatrix}\n\\]\nThis maps the data-points from \\(\\mathbb{R}^{2}\\) to \\(\\mathbb{R}^{3}\\), the plane to the space. But given the nature of the dataset, the transformed dataset would lie roughly along the y-axis in the 3d plane. Thus, the transformation \\(\\phi\\) has managed to convert a non-linear dataset in the original feature space to a linear dataset in the transformed space. In reality, things might not be so straightforward. Nevertheless, this gives us some intuition as to what transformations can do.\nWe can also look at one more transformation:\n\\[\n\\phi(x_{1,}x_{2})=\\begin{bmatrix}x_{1}\\\\\nx_{1}^{2}\\\\\nx_{2}\n\\end{bmatrix}\n\\]\nConsider the line \\(w^{T}x=0\\), where \\(w=\\begin{bmatrix}0\\\\\n1\\\\\n-1\n\\end{bmatrix}\\) in the transformed space. Most of the transformed data-points are going to lie roughly along this line.\nProceeding with this idea, let us assume that there is a (potentially non-linear) map \\(\\phi\\,\\,:\\,\\,\\)\\(\\mathbb{R}^{d}\\rightarrow\\mathbb{R}^{D}\\) that maps the feature space \\(\\mathbb{R}^{d}\\) to \\(\\mathbb{R}^{D}\\). The transformed data-matrix is \\(\\phi(X)\\):\n\\[\n\\phi(X)=\\begin{bmatrix}\\vert &  & \\vert\\\\\n\\phi(x_{1}) & \\cdots & \\phi(x_{n})\\\\\n\\vert &  & \\vert\n\\end{bmatrix}\n\\]\nThis is a \\(D\\times n\\) matrix. We can now proceed with PCA on the data-matrix \\(\\phi(X)\\). But what if \\(D\\) is huge? After all, we are trying to move to a higher dimension and it is quite likely that \\(D\\) would be huge for really complex datasets. So we go back to working with the Gram matrix like in section-1. There is another great advantage of this which will be discussed later. We will now define the Gram matrix as:\n\\[\nK=\\phi(X)^{T}\\phi(X)\n\\]\nThe eigenpairs of the Gram matrix are:\n\\[\n(\\lambda_{1},v_{1}),\\cdots,(\\lambda_{r},v_{r})\n\\]\nwhere \\(r\\) is the rank of \\(K\\). Note that \\(r\\leq\\min(D,n)\\). From this, we can get hold of the eigenvalues and eigenvectors of the covariance matrix \\(C=\\frac{1}{n}\\phi(X)\\phi(X)^{T}\\) as:\n\\[\n\\left(\\cfrac{\\lambda_{1}}{n},\\cfrac{\\phi(X)v_{1}}{\\sqrt{\\lambda_{1}}}\\right),\\cdots,\\left(\\cfrac{\\lambda_{r}}{n},\\cfrac{\\phi(X)v_{r}}{\\sqrt{\\lambda_{r}}}\\right)\n\\]\nAll this is good if we know the precise form of the transformation \\(\\phi\\). But most often, we may not know what this transformation is. Even if we know this, we would have to compute it for every data-point.\nThe computationally intensive step here is the eigen-decomposition of the Gram matrix. So let us take a closer look at it. Notice that it has the form \\(\\phi(X)^{T}\\phi(X)\\). For computing the Gram matrix, what we need is the pair-wise inner products in the transformed space. Is there any tool that will give us these inner products without having to explicitly compute \\(\\phi(x)\\)? There is such a tool and it is called a kernel.\nA kernel is a function \\(k:\\mathbb{R}^{d}\\times\\mathbb{R}^{d}\\rightarrow\\mathbb{R}\\), such that there exists a \\(\\phi:\\mathbb{R}^{d}\\rightarrow\\mathbb{R}^{D}\\)\n\\[\nk(x_{1},x_{2})=\\phi(x_{1})^{T}\\phi(x_{2})\n\\]\nThis is a loose definition as the transformed space need not necessarily be finite dimensional. Besides, the inner product in the transformed space may not necessarily be the dot product.",
+    "crumbs": [
+      "Topics",
+      "Machine Learning",
+      "Notes",
+      "PCA Variants"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/rref.html",
+    "href": "topics/linear_algebra/notes/rref.html",
+    "title": "RREF is unique",
+    "section": "",
+    "text": "The reduced row echelon form of a matrix is unique. The proof requires an observation about the row spaces of a matrix and its RREF.",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "RREF is unique"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/rref.html#row-operations-preserve-row-space",
+    "href": "topics/linear_algebra/notes/rref.html#row-operations-preserve-row-space",
+    "title": "RREF is unique",
+    "section": "Row operations preserve row space",
+    "text": "Row operations preserve row space\nIf a matrix \\(A\\) has \\(n\\) rows, say \\(r_{1},\\cdots,r_{n}\\), then the span of the rows is the set of all possible linear combinations of the rows and is called the row space of the matrix:\n\\[\n\\text{span}\\{r_{1},\\cdots,r_{n}\\}\n\\]\nSwapping two rows or scaling a row by a non-zero constant clearly preserves this span. Let us now try to add one row to the other, the third type of elementary operation. Without loss of generality, let us say we add the second row to the first. The span becomes:\n\\[\n\\text{span}\\{r_{1}+r_{2},r_{2},\\cdots,r_{n}\\}\n\\]\nWe need to show the following:\n\\[\n\\text{span}\\{r_{1}+r_{2},r_{2},\\cdots,r_{n}\\}=\\text{span}\\{r_{1},\\cdots,r_{n}\\}\n\\]\nWe will denote these two sets \\(R_{1}\\) and \\(R_{2}\\). Let us take any element \\(R_{1}\\):\n\\[\n\\begin{aligned}\na_{1}(r_{1}+r_{2})+a_{2}r_{2}+\\cdots+a_{n}r_{n} & =a_{1}r_{1}+(a_{1}+a_{2})r_{2}+a_{3}r_{3}+\\cdots+a_{n}r_{n}\n\\end{aligned}\n\\]\nWe see that this element is present in \\(R_{2}\\) as well. Therefore:\n\\[\n\\text{span}\\{r_{1}+r_{2},r_{2},\\cdots,r_{n}\\}\\subset\\text{span}\\{r_{1},\\cdots,r_{n}\\}\n\\]\nTo go the other way, take any element in \\(R_{2}\\):\n\\[\n\\begin{aligned}\na_{1}r_{1}+\\cdots+a_{n}r_{n} & =a_{1}(r_{1}+r_{2})+(a_{2}-a_{1})r_{2}+a_{3}r_{3}+\\cdots+a_{n}r_{n}\n\\end{aligned}\n\\]\nWe see that this element is there in \\(R_{1}\\) as well. Therefore:\n\\[\n\\text{span}\\{r_{1},\\cdots,r_{n}\\}\\subset\\text{span}\\{r_{1}+r_{2},r_{2},\\cdots,r_{n}\\}\n\\]\nThus, all elementary operations preserve the span of the rows of the original matrix. An important consequence of this is that the row space of a matrix is equal to that of its RREF.",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "RREF is unique"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/rref.html#non-zero-rows-in-rref-form-a-basis-for-row-space",
+    "href": "topics/linear_algebra/notes/rref.html#non-zero-rows-in-rref-form-a-basis-for-row-space",
+    "title": "RREF is unique",
+    "section": "Non-zero rows in RREF form a basis for row space",
+    "text": "Non-zero rows in RREF form a basis for row space\nA concrete example will be used below, but it is quite easy to generalize it:\n\\[\n\\begin{bmatrix}\\boldsymbol{1} &  & 0 &  & 0\\\\\n0 & 0 & \\boldsymbol{1} &  & 0\\\\\n0 & 0 & 0 & 0 & \\boldsymbol{1}\\\\\n0 & 0 & 0 & 0 & 0 & 0\\\\\n0 & 0 & 0 & 0 & 0 & 0\n\\end{bmatrix}\n\\]\nAll entries that are not filled are irrelevant to the discussion and could take arbitrary real values. Notice that the non-zero rows are linearly independent. If we call the non-zero rows \\(r_{1},r_{2},r_{3}\\), we have:\n\\[\nar_{1}+br_{2}+cr_{3}=0\\implies a=b=c=0\n\\]\nWe already know that row operations preserve the span of the rows. Hence, the non-zero rows form a basis for the row space.",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "RREF is unique"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/notes/rref.html#proof",
+    "href": "topics/linear_algebra/notes/rref.html#proof",
+    "title": "RREF is unique",
+    "section": "Proof",
+    "text": "Proof\nAssume that \\(R_{1}\\) and \\(R_{2}\\) are two RREFs for the matrix \\(A\\). From the observations made so far, \\(R_{1}\\) and \\(R_{2}\\) have the same number of non-zero rows and the span of the non-zero rows of the two matrices are equal, each being equal to the row space of \\(A\\).\nThe pivot columns in \\(R_{1}\\) and \\(R_{2}\\) have to be identical, both in number and position. The number of pivots is equal to the number of non-zero rows, which is the dimension of the row space. So this can’t be different in the RREFs. This leaves us with the possibility of the position of the pivot columns being different. Let us look at a potential contradiction to this:\n\\[\n\\begin{aligned}\n\\begin{bmatrix}\\boldsymbol{1} &  & 0 &  & 0\\\\\n0 & 0 & \\boldsymbol{1} &  & 0\\\\\n0 & 0 & 0 & 0 & \\boldsymbol{1}\\\\\n0 & 0 & 0 & 0 & 0 & 0\\\\\n0 & 0 & 0 & 0 & 0 & 0\n\\end{bmatrix} &  & \\begin{bmatrix}\\boldsymbol{1} & 0 &  &  & 0\\\\\n0 & \\boldsymbol{1} & \\boldsymbol{} &  & 0\\\\\n0 & 0 & 0 & 0 & \\boldsymbol{1}\\\\\n0 & 0 & 0 & 0 & 0 & 0\\\\\n0 & 0 & 0 & 0 & 0 & 0\n\\end{bmatrix}\n\\end{aligned}\n\\]\nAssume that these two matrices are two distinct RREFs for some matrix \\(A\\) with the same number of pivot columns, but at different locations. We know that the row space has dimension \\(3\\), so any set of four vectors in the row space are dependent. If we take the first three rows from the matrix on the left and the second row from the matrix on the right, these four vectors make a linearly independent subset of the row space, which is a contradiction. So the position of the pivot columns have to be the same.\nWe are now back to two RREFs whose general outline looks like this:\n\\[\n\\begin{bmatrix}\\boldsymbol{1} &  & 0 &  & 0\\\\\n0 & 0 & \\boldsymbol{1} &  & 0\\\\\n0 & 0 & 0 & 0 & \\boldsymbol{1}\\\\\n0 & 0 & 0 & 0 & 0 & 0\\\\\n0 & 0 & 0 & 0 & 0 & 0\n\\end{bmatrix}\n\\]\nOnce the pivot columns are fixed for both the RREFs consider the last non-zero row, \\(r_{3}^{(2)}\\), from the second RREF. This should be expressible as a linear combination of the non-zero rows of the first RREF:\n\\[\nr_{3}^{(2)}=a_{1}r_{1}^{(1)}+a_{2}r_{2}^{(1)}+a_{3}r_{3}^{(1)}\n\\]\nWe immediately see that \\(a_{1}=a_{2}=0\\). \\(a_{3}\\) is forced to be \\(1\\) as the pivots have to agree. Thus the last non-zero row is identical in both RREFs. We can now repeat the process for the second non-zero row:\n\\[\nr_{2}^{(2)}=a_{1}r_{1}^{(1)}+a_{2}r_{2}^{(1)}+a_{3}r_{3}^{(1)}\n\\]\n\\(a_{1}=0\\), \\(a_{2}=1\\) and \\(a_{3}=0\\). So the last two rows of the two RREFs are the same. A similar argument shows that all non-zero rows in the two RREFs are the same, which means that the two RREFs are one and the same.",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Notes",
+      "RREF is unique"
+    ]
+  },
+  {
+    "objectID": "topics/linear_algebra/problems/problem-2.html",
+    "href": "topics/linear_algebra/problems/problem-2.html",
+    "title": "Problem-2",
+    "section": "",
+    "text": "Let \\(U\\) and \\(V\\) be two three dimensional subspaces of \\(\\mathbb{R}^{5}.\\) Show that there exists a non-zero vector \\(v\\in\\mathbb{R}^{5}\\) which lies in both \\(U\\) and \\(V\\).\n\nWe have:\n\\[\n\\text{dim}(U\\cap V)=\\text{dim}(U)+\\text{dim}(V)-\\text{dim}(U+V)\n\\]\nThe maximum value of \\(\\text{dim}(U+V)\\) is \\(5\\), since \\(U+V\\) is a subspace of \\(\\mathbb{R}^{5}.\\) Therefore, the minimum value of \\(\\text{dim}(U\\cap V)\\) is \\(3+3-5=1\\). Therefore, \\(U\\cap V\\) is a non-trivial subspace of \\(\\mathbb{R}^{5}\\). It follows that there exists some non-zero \\(v\\in\\mathbb{R}^{5}\\) that is in both \\(U\\) and \\(V\\).",
+    "crumbs": [
+      "Topics",
+      "Linear Algebra",
+      "Problems",
+      "Problem-2"
+    ]
+  },
+  {
+    "objectID": "random/index.html",
+    "href": "random/index.html",
+    "title": "Random",
+    "section": "",
+    "text": "This section has a collection of notes on miscellaneous topics. Some are technical in nature, some are not so technical. But most of them are concerned with mathematics, computing and pedagogy.",
+    "crumbs": [
+      "Random"
+    ]
+  }
+]
