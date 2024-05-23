@@ -20,11 +20,11 @@ X\left(X^{T}X\right)v & =\lambda(Xv)\\
 \end{aligned}
 $$
 
-:::
-
-:::
-
 If $Xv$ is non-zero, then $(\lambda,Xv)$ is an eigenpair of $XX^{T}$. $Xv$ is indeed non-zero. If $Xv=0$, then $X^{T}Xv=0$, which would mean that $v$ is an eigenvector of $X^{T}X$ with eigenvalue $0$, which contradicts the fact that $\lambda\neq0$.
+
+:::
+
+:::
 
 This result is useful because it provides a way to get the eigenpairs of $XX^{T}$ using the eigenpairs of $X^{T}X$. Since $X^{T}X$ is $n\times n$ and $n\ll d$, the cost of the eigen-decomposition of $X^{T}X$ would be $O(n^{3})$, which is more efficient than the $O(d^{3})$ for $XX^{T}$.
 
