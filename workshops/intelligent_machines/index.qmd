@@ -1,0 +1,461 @@
+---
+title: "Intelligent Machines"
+subtitle: "Past, Present and Future"
+author: "Karthik Thiagarajan"
+date: "07/14/2024"
+institute: "IIT Madras"
+format:
+  revealjs:
+    theme: default
+    logo: logo.png
+    width: 100%
+    height: 100%
+    incremental: true
+    footnotes-hover: true
+    preview-links: auto
+---
+
+## Announcements
+
+- IIT Madras is a plastic free zone.
+- Do **not** engage with the wildlife.
+- Do **not** have your lunch inside the classroom.
+
+
+
+# Intelligence
+
+## Human Intelligence
+
+::: {.fragment fragment-index=1 .absolute left=700 top=200 width="30%" height="30%"}
+
+![Howard Gardner](img-1.png)
+
+:::
+
+::: {.fragment fragment-index=1}
+
+Theory of multiple intelligences, Frames of mind, 1983
+
+:::
+
+- Logical-mathematical
+- Bodily-Kinesthetic
+- Linguistic
+- Musical
+- Visual-Spatial intelligence
+- Interpersonal
+- Intrapersonal
+
+
+
+## Human Intelligence
+
+::: {.fragment}
+
+![](img-23.svg)
+
+:::
+
+
+
+## Evolution
+
+::: {.fragment .absolute top=50 left=0 width=100% height=100%}
+
+![](img-21.svg)
+
+:::
+
+## Human Vision
+
+::: {.fragment}
+
+![](img-23.png)
+
+:::
+
+
+
+# Intelligent Machines
+
+## What is a machine?
+
+::: {.fragment .absolute top=100 left=0 fragment-index=1}
+
+>  Anything that reduces human effort.
+
+:::
+
+::: {.fragment .absolute top=200 left=0 style="font-size: 70%;"}
+
+-- Prof Dubey
+
+:::
+
+::: {.fragment .absolute top=0 left=700 width=40% height=40% fragment-index=2}
+
+![](img-20.jpg)
+
+:::
+
+## Evolution
+
+::: {.fragment .absolute top=50 left=0 width=100% height=100%}
+
+![](img-22.svg)
+
+:::
+
+
+
+## Kasparov vs Deep Blue
+
+::: {.fragment}
+
+![](img-36.png)
+
+:::
+
+
+
+## Atari
+
+{{< video https://www.youtube.com/watch?v=TmPfTpjtdgg&ab_channel=GoogleDeepMind width="100%" height="85%" >}}
+
+
+
+## Go
+
+{{< video https://www.youtube.com/watch?v=lXVi8PTaITA&ab_channel=wikiHow width="100%" height="85%" >}}
+
+
+
+## AlphaGo vs Lee Sedol
+
+::: {.fragment}
+
+![](img-31.png)
+
+:::
+
+
+
+## AlphaStar
+
+::: {.fragment}
+
+![](img-37.png)
+
+:::
+
+
+
+## Generative AI {.smaller}
+
+- [Chat-GPT](https://chatgpt.com/)
+- [Gemini](https://gemini.google.com/app)
+- [Sonnet-3.5](https://claude.ai/)
+- [Perplexity](https://www.perplexity.ai/)
+
+- [Imagen](https://imagen.research.google/)
+- [DALL $\cdot$ E3](https://openai.com/index/dall-e-3/)
+
+- [Imagen Video](https://imagen.research.google/video/)
+- [VEO](https://deepmind.google/technologies/veo/)
+- [V2A](https://deepmind.google/discover/blog/generating-audio-for-video/)
+
+
+
+## Enablers
+
+::: {.fragment}
+
+![](img-26.svg)
+
+:::
+
+
+
+## Data
+
+::: {.fragment}
+
+![](img-24.svg)
+
+:::
+
+
+
+## Hardware
+
+::: {.fragment}
+
+![](img-28.png)
+
+:::
+
+::: {.fragment .absolute top=420 left=200 style="font-size: 75%;"}
+
+- NVIDIA V100 Tensor Core GPU
+- Equivalent to $32$ CPUs
+- $7$ teraflops
+
+:::
+
+# Learning from Data
+
+## Pattern Recognition
+
+::: {.fragment}
+
+![](img-25.svg)
+
+:::
+
+
+
+## Decision Making
+
+::: {.fragment}
+
+![](img-27.svg)
+
+:::
+
+
+
+## Dataset
+
+::: {.fragment}
+
+![](img-28.svg)
+
+:::
+
+
+
+## Learning from Data
+
+::: {.fragment .fade-in-then-out .absolute top=100 left=0}
+
+![](img-29.svg)
+
+:::
+
+
+
+::: {.fragment  .absolute top=100 left=0 .fade-in-then-out}
+
+![](img-30.svg)
+
+:::
+
+
+
+::: {.fragment  .absolute top=100 left=0}
+
+![](img-33.svg)
+
+:::
+
+
+
+
+
+
+
+## Data $\rightarrow$ Decisions
+
+::: {.fragment}
+
+![](img-31.svg)
+
+:::
+
+
+
+## Neuron
+
+::: {.fragment}
+
+![](img-34.svg)
+
+:::
+
+
+
+## Neural Network
+
+::: {.fragment}
+
+![](img-35.svg)
+
+:::
+
+
+
+## Partition the Data
+
+::: {.fragment}
+
+![](img-32.svg)
+
+:::
+
+
+
+# AI Empire
+
+## Industry
+
+::: {.fragment .absolute width="25%" height="25%"}
+
+![](img-2.svg)
+
+:::
+
+::: {.fragment .absolute width="25%" height="25%" top=80 left=400}
+
+![](img-3.png)
+
+:::
+
+::: {.fragment .absolute width="40%" height="40%" top=-20 left=700}
+
+![](img-6.svg)
+
+:::
+
+::: {.fragment .absolute width=25% height=25% top=350}
+
+![](img-4.png)
+
+:::
+
+::: {.fragment .absolute width=25% height=25% top=300 left=400}
+
+![](img-7.svg)
+
+:::
+
+::: {.fragment .absolute width=10% height=10% top=430 left=500}
+
+![](img-5.svg)
+
+:::
+
+::: {.fragment .absolute width=25% height=25% top=100 left=800}
+
+![](img-8.png)
+
+:::
+
+::: {.fragment .absolute width=25% height=25% top=400 left=700}
+
+![](img-9.png)
+
+:::
+
+::: {.fragment .absolute width=10% height=10% top=400 left=1000}
+
+![](img-10.svg)
+
+:::
+
+
+
+## Academia
+
+::: {.fragment .absolute width=50% height=50%}
+
+![](img-11.png)
+
+:::
+
+
+
+::: {.fragment .absolute width=25% height=25% top=100 left=500}
+
+![](img-12.png)
+
+:::
+
+::: {.fragment .absolute width=20% height=20% top=100 left=900}
+
+![](img-13.png)
+
+:::
+
+::: {.fragment .absolute width=20% height=20% top=400}
+
+![](img-14.svg)
+
+:::
+
+::: {.fragment .absolute width=20% height=20% top=400 left=400}
+
+![](img-15.png)
+
+:::
+
+::: {.fragment .absolute width=20% height=20% top=400 left=800}
+
+![](img-16.png)
+
+:::
+
+## People
+
+::: {.fragment .absolute width=20% height=20% top=100 left=0}
+
+![Geoffrey Hinton](img-17.jpg)
+
+:::
+
+::: {.fragment .absolute width=20% height=20% top=100 left=400}
+
+![Yoshua Bengio](img-18.jpg)
+
+:::
+
+::: {.fragment .absolute width=25% height=25% top=100 left=800}
+
+![Yann LeCun](img-19.jpg)
+
+:::
+
+::: {.fragment .absolute width=25% height=25% top=450 left=400}
+
+![](img-20.png)
+
+:::
+
+# Robotics
+
+
+
+## Optimus | Tesla
+
+{{< video https://www.youtube.com/watch?v=cpraXaw7dyc&ab_channel=Tesla width="100%" height="85%" >}}
+
+
+
+## Optimus | Tesla
+
+{{< video https://youtu.be/vibNjdbtaEM?feature=shared width="100%" height="85%" >}}
+
+
+
+
+
+## Digit | Agility Robotics
+
+{{< video https://youtu.be/rnFZAB9ogEE?feature=shared width="100%" height="85%" >}}
+
+
+
+## Sophia | Hanson Robotics
+
+{{< video https://youtu.be/0HoSwHNUOHg?feature=shared width="100%" height="85%" >}}
+

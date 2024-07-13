@@ -12,6 +12,7 @@ website:
       - auto: courses
       - auto: topics
       - auto: random
+      - auto: workshops
     collapse-level: 1
     background: "light"
     style: "docked"
