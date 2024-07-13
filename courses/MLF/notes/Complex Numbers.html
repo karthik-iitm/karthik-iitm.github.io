@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Complex Numbers</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../../../topics/linear_algebra/notes/inverse.html" rel="next">
+<link href="../../../courses/MLF/notes/Best-fit.html" rel="prev">
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../courses/Maths-2/index.html">Courses</a></li><li class="breadcrumb-item">MLF</li><li class="breadcrumb-item"><a href="../../../courses/MLF/notes/Introduction.html">Notes</a></li><li class="breadcrumb-item"><a href="../../../courses/MLF/notes/Complex Numbers.html">Complex Numbers</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../">Karthik Thiagarajan</a> 
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Courses</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../courses/Maths-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maths-2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../courses/Maths-2/AQ/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Activity Questions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Week 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">1.1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.1/AQ-1.1-9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">1.2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.2/AQ-1.2-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">1.3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.3/AQ-1.3-9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">1.4</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.4/AQ-1.4-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">1.5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-1/1.5/AQ-1.5-9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">Week 2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+ <span class="menu-text">2.1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.1/AQ-2.1-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text">2.3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.3/AQ-2.3-9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-9</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text">2.4</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.4/AQ-2.4-8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false">
+ <span class="menu-text">2.5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/AQ/Week-2/2.5/AQ-2.5-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Question-7</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../courses/Maths-2/runs/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Runs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/Maths-2/runs/T2-2024.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">T2-2024</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-expanded="true">
+ <span class="menu-text">MLF</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="true">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/ML Problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ML Problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Linear Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Xw=0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(\mathbf{X} \mathbf{w}=\mathbf{0}\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Xw=y.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(\mathbf{Xw} = \mathbf{y}\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/XW~y.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(\mathbf{Xw} \approx \mathbf{y}\)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Projections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Best-fit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Best-Fit Hyperplane</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../courses/MLF/notes/Complex Numbers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Complex Numbers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false">
+ <span class="menu-text">Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="false">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/linear_algebra/notes/inverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverse and Determinant</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/linear_algebra/notes/rref.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RREF is unique</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/linear_algebra/notes/spectral.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Theorem (real version)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" aria-expanded="false">
+ <span class="menu-text">Problems</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/linear_algebra/problems/problem-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Problem-1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/linear_algebra/problems/problem-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Problem-2</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" aria-expanded="false">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/machine_learning/notes/PCA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/machine_learning/notes/PCA_variants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PCA Variants</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" aria-expanded="false">
+ <span class="menu-text">Probability Statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" aria-expanded="false">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../topics/probability_statistics/notes/Poisson.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poisson Distribution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../random/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../random/solving_equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reversible Transformations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#algebra" id="toc-algebra" class="nav-link" data-scroll-target="#algebra">Algebra</a>
+  <ul class="collapse">
+  <li><a href="#addition" id="toc-addition" class="nav-link" data-scroll-target="#addition">Addition</a></li>
+  <li><a href="#multiplication" id="toc-multiplication" class="nav-link" data-scroll-target="#multiplication">Multiplication</a></li>
+  <li><a href="#absolute-value" id="toc-absolute-value" class="nav-link" data-scroll-target="#absolute-value">Absolute value</a></li>
+  <li><a href="#conjugate" id="toc-conjugate" class="nav-link" data-scroll-target="#conjugate">Conjugate</a></li>
+  <li><a href="#division" id="toc-division" class="nav-link" data-scroll-target="#division">Division</a></li>
+  <li><a href="#polar-coordinates" id="toc-polar-coordinates" class="nav-link" data-scroll-target="#polar-coordinates">Polar Coordinates</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../courses/Maths-2/index.html">Courses</a></li><li class="breadcrumb-item">MLF</li><li class="breadcrumb-item"><a href="../../../courses/MLF/notes/Introduction.html">Notes</a></li><li class="breadcrumb-item"><a href="../../../courses/MLF/notes/Complex Numbers.html">Complex Numbers</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Complex Numbers</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>A complex number is of the form <span class="math inline">\(\displaystyle a+ib\)</span>, where <span class="math inline">\(\displaystyle a\)</span> and <span class="math inline">\(\displaystyle b\)</span> are real numbers and <span class="math inline">\(\displaystyle i^{2} =-1\)</span>. Some examples are:</p>
+<ul>
+<li><span class="math inline">\(\displaystyle 2+3i\)</span></li>
+<li><span class="math inline">\(\displaystyle 5-10i\)</span></li>
+<li><span class="math inline">\(\displaystyle -i\)</span></li>
+<li><span class="math inline">\(\displaystyle 5i\)</span></li>
+<li><span class="math inline">\(\displaystyle 4\)</span></li>
+</ul>
+<p>The set of complex numbers is denoted by <span class="math inline">\(\displaystyle \mathbb{C}\)</span>. Every real number is a complex number. But every complex number need not necessarily be a real number. In terms of set theoretic notation, <span class="math inline">\(\displaystyle \mathbb{R} \subset \mathbb{C}\)</span> but <span class="math inline">\(\displaystyle \mathbb{C} \not \subset \mathbb{R}\)</span>.</p>
+<p>A complex number has two parts to it: real and imaginary part. For the complex number <span class="math inline">\(\displaystyle 2+3i\)</span>, the real part is <span class="math inline">\(\displaystyle 2\)</span> and the imaginary part is <span class="math inline">\(\displaystyle 3\)</span>. So, any complex number <span class="math inline">\(\displaystyle z\)</span> can be written as <span class="math inline">\(\displaystyle z=\text{Re}( z) +\text{Im}( z) \cdot i\)</span>.</p>
+<p>We can understand complex numbers geometrically by plotting the real part on the x-axis and the imaginary part on the y-axis.</p>
+<p><img src="img-7.png" class="img-fluid"></p>
+<p>This plane is called the complex plane, also called the Argand plane or Gauss plane.</p>
+</section>
+<section id="algebra" class="level2">
+<h2 class="anchored" data-anchor-id="algebra">Algebra</h2>
+<p>The following are some of the operations that we can do on complex numbers:</p>
+<ul>
+<li>addition (subtraction)</li>
+<li>multiplication (division)</li>
+<li>absolute value or modulus</li>
+<li>conjugate</li>
+</ul>
+<p>We will look at each one of these operations.</p>
+<section id="addition" class="level3">
+<h3 class="anchored" data-anchor-id="addition">Addition</h3>
+<p>Consider two complex numbers <span class="math inline">\(\displaystyle z_{1} =a_{1} +ib_{1}\)</span> and <span class="math inline">\(\displaystyle z_{2} =a_{2} +ib_{2}\)</span>. Then:</p>
+<p><span class="math display">\[
+\begin{equation*}
+z_{1} +z_{2} =( a_{1} +a_{2}) +i( b_{1} +b_{2})
+\end{equation*}
+\]</span></p>
+<p>To add two complex numbers, we add the real part separately and the imaginary part separately. For example:</p>
+<p><span class="math display">\[
+\begin{gather*}
+\left( 1+3i\right) +\left( -5-2i\right) =\left( 1-5\right) +i\left( 3-2\right)\\
+\ \ \ \ \ \ \ \ \ \ \ \ =-4+i
+\end{gather*}
+\]</span></p>
+<p>Subtraction follows trivially. To compute <span class="math inline">\(\displaystyle z_{1} -z_{2}\)</span>, we can just compute <span class="math inline">\(\displaystyle z_{1} +\left( -z_{2}\right)\)</span>.</p>
+</section>
+<section id="multiplication" class="level3">
+<h3 class="anchored" data-anchor-id="multiplication">Multiplication</h3>
+<p>Consider two complex numbers <span class="math inline">\(\displaystyle z_{1} =a_{1} +ib_{1}\)</span> and <span class="math inline">\(\displaystyle z_{2} =a_{2} +ib_{2}\)</span>. Then:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\begin{aligned}
+z_{1} z_{2} &amp; =\left( a_{1} +ib_{1}\right)\left( a_{2} +ib_{2}\right)\\
+&amp; =a_{1} a_{2} +a_{1}\left( ib_{2}\right) +\left( ib_{1}\right) a_{2} +i^{2} b_{1} b_{2}\\
+&amp; =a_{1} a_{2} +i\left( a_{1} b_{2}\right) +i\left( a_{2} b_{1}\right) -b_{1} b_{2}\\
+&amp; =\left( a_{1} a_{2} -b_{1} b_{2}\right) +i\left( a_{1} b_{2} +a_{2} b_{1}\right)
+\end{aligned}
+\end{equation*}
+\]</span></p>
+<p>As an example, if <span class="math inline">\(\displaystyle z_{1} =3-2i\)</span> and <span class="math inline">\(\displaystyle z_{2} =5+i\)</span>, then:</p>
+<p><span class="math display">\[
+\begin{gather*}
+\begin{aligned}
+z_{1} z_{2} &amp; =\left( 3\times 5-\left( -2\right) \times 1\right) +i\left( 3\times 1+\left( -2\right) \times 5\right)\\
+&amp; =17-7i
+\end{aligned}\\
+\end{gather*}
+\]</span></p>
+<p>Before moving to division, let us look at the idea of the absolute value of a complex number.</p>
+</section>
+<section id="absolute-value" class="level3">
+<h3 class="anchored" data-anchor-id="absolute-value">Absolute value</h3>
+<p>The absolute value of a complex number <span class="math inline">\(\displaystyle z=a+ib\)</span> is given by:</p>
+<p><span class="math display">\[
+\begin{equation*}
+|z|=\sqrt{a^{2} +b^{2}}
+\end{equation*}
+\]</span></p>
+<p>Geometrically, we can think about it as the distance of <span class="math inline">\(\displaystyle z\)</span> from the origin. For example, if <span class="math inline">\(\displaystyle z=3+2i\)</span>, then <span class="math inline">\(\displaystyle |z|=\sqrt{3^{2} +2^{2}} =\sqrt{13}\)</span>. The complex number (blue dot) is at a distance of <span class="math inline">\(\displaystyle \sqrt{13}\)</span> units from the origin.</p>
+<p><img src="img-8.png" class="img-fluid"></p>
+<p>Another term for the absolute value is modulus. The absolute value of a complex number is always going to be a non-negative real number.</p>
+</section>
+<section id="conjugate" class="level3">
+<h3 class="anchored" data-anchor-id="conjugate">Conjugate</h3>
+<p>The conjugate of a complex number <span class="math inline">\(\displaystyle z=a+ib\)</span> is denoted by <span class="math inline">\(\displaystyle \overline{z}\)</span> and given as:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\overline{z} =a-ib
+\end{equation*}
+\]</span></p>
+<p>For example, if <span class="math inline">\(\displaystyle z=3+2i\)</span> then <span class="math inline">\(\displaystyle \overline{z} =3-2i\)</span>. Geometrically, <span class="math inline">\(\displaystyle \overline{z}\)</span> is the reflection of <span class="math inline">\(\displaystyle z\)</span>​ around the x-axis:</p>
+<p><img src="img-9.png" class="img-fluid"></p>
+<p>The following is an interesting relation:</p>
+<p><span class="math display">\[
+\begin{equation*}
+z\overline{z} =|z|^{2}
+\end{equation*}
+\]</span></p>
+<p>To see why this is true, consider any complex number <span class="math inline">\(\displaystyle z=a+ib\)</span>. Then:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\begin{aligned}
+z\overline{z} &amp; =\left( a+ib\right)\left( a-ib\right)\\
+&amp; =a^{2} -a\left( ib\right) +\left( ib\right) a-i^{2} b^{2}\\
+&amp; =a^{2} -i\left( ab\right) +i\left( ab\right) +b^{2}\\
+&amp; =a^{2} +b^{2}
+\end{aligned}
+\end{equation*}
+\]</span></p>
+<p>Here is an interesting observation related to conjugates that will be used quite extensively in subsequent lectures: <span class="math inline">\(\displaystyle z=\overline{z}\)</span> if and only if <span class="math inline">\(\displaystyle z\)</span> is a real number. To see why this is true, let <span class="math inline">\(\displaystyle z=a+ib\)</span>. If <span class="math inline">\(\displaystyle z\)</span> is a real number, then <span class="math inline">\(\displaystyle b=0\)</span>, and it is obvious that <span class="math inline">\(\displaystyle z=\overline{z} =a\)</span>. On the other hand, if <span class="math inline">\(\displaystyle z=\overline{z}\)</span>, then we have:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\begin{aligned}
+a+ib &amp; =a-ib\\
+i\left( 2b\right) &amp; =0\\
+\Longrightarrow b &amp; =0
+\end{aligned}
+\end{equation*}
+\]</span></p>
+<p>It follows that <span class="math inline">\(\displaystyle z=a\)</span> and hence a real number.</p>
+</section>
+<section id="division" class="level3">
+<h3 class="anchored" data-anchor-id="division">Division</h3>
+<p>Let us try to divide two complex numbers <span class="math inline">\(\displaystyle z_{1} =a_{1} +ib_{1}\)</span> and <span class="math inline">\(\displaystyle z_{2} =a_{2} +ib_{2}\)</span> with <span class="math inline">\(\displaystyle z_{2} \neq 0\)</span>:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\begin{aligned}
+\cfrac{z_{1}}{z_{2}} &amp; =\cfrac{a_{1} +ib_{1}}{a_{2} +ib_{2}}\\
+&amp; =\cfrac{a_{1} +ib_{1}}{a_{2} +ib_{2}{}} \cdot \cfrac{a_{2} -ib_{2}}{a_{2} -ib_{2}}\\
+&amp; =\cfrac{\left( a_{1} +ib_{1}\right)\left( a_{2} -ib_{2}\right)}{a_{2}^{2} +b_{2}^{2}}\\
+&amp; =\cfrac{a_{1} a_{2} +b_{1} b_{2}}{a_{2}^{2} +b_{2}^{2}} +i\cdot \cfrac{a_{2} b_{1} -a_{1} b_{2}}{a_{2}^{2} +b_{2}^{2}}
+\end{aligned}
+\end{equation*}
+\]</span></p>
+</section>
+<section id="polar-coordinates" class="level3">
+<h3 class="anchored" data-anchor-id="polar-coordinates">Polar Coordinates</h3>
+<p>Consider a complex number <span class="math inline">\(\displaystyle z=a+ib\)</span>​</p>
+<p><img src="img-10.png" class="img-fluid"></p>
+<p>Using basic trigonometry, we have the following relations:</p>
+<p><span class="math display">\[
+\begin{gather*}
+\begin{aligned}
+r &amp; =\sqrt{a^{2} +b^{2}}\\
+&amp; \\
+\cfrac{a}{r} &amp; =\cos \theta \\
+&amp; \\
+\cfrac{b}{r} &amp; =\sin \theta
+\end{aligned}\\
+\end{gather*}
+\]</span></p>
+<p>Alternatively, we have:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\begin{aligned}
+a &amp; =r\cos \theta \\
+b &amp; =r\sin \theta
+\end{aligned}
+\end{equation*}
+\]</span></p>
+<p>So, the complex number <span class="math inline">\(\displaystyle z\)</span> can be written as:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\begin{aligned}
+z &amp; =a+ib\\
+&amp; =r\cos \theta +i( r\sin \theta )\\
+&amp; =r(\cos \theta +i\sin \theta )
+\end{aligned}
+\end{equation*}
+\]</span></p>
+<p>The following result is stated without proof. If <span class="math inline">\(\displaystyle e\)</span> is the familiar Euler’s number, then:</p>
+<p><span class="math display">\[
+\begin{equation*}
+e^{i\theta } =\cos \theta +i\sin \theta
+\end{equation*}
+\]</span></p>
+<p>Using this result, we can write <span class="math inline">\(\displaystyle z\)</span> as:</p>
+<p><span class="math display">\[
+\begin{equation*}
+z=re^{i\theta }
+\end{equation*}
+\]</span></p>
+<p><span class="math inline">\(\displaystyle r\)</span> is the absolute value of <span class="math inline">\(\displaystyle z\)</span> and <span class="math inline">\(\displaystyle \theta\)</span> is called the argument of <span class="math inline">\(\displaystyle z\)</span>. This way of representing a complex number using its modulus (absolute value) and argument is called the polar coordinate representation. Using this representation, the conjugate of <span class="math inline">\(\displaystyle z=a+ib\)</span> can be written as follows:</p>
+<p><span class="math display">\[
+\begin{equation*}
+\begin{aligned}
+\overline{z} &amp; =a-ib\\
+&amp; =r(\cos \theta -i\sin \theta )\\
+&amp; =r[\cos( -\theta ) +i\sin( -\theta )]\\
+&amp; =re^{-i\theta }
+\end{aligned}
+\end{equation*}
+\]</span></p>
+<p>We have used the fact that <span class="math inline">\(\displaystyle \cos( -\theta ) =\cos \theta\)</span> and <span class="math inline">\(\displaystyle \sin( -\theta ) =-\sin \theta\)</span>. The geometric interpretation of the conjugate under the polar coordinates is as follows:</p>
+<p><img src="img-11.png" class="img-fluid"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../courses/MLF/notes/Best-fit.html" class="pagination-link" aria-label="Best-Fit Hyperplane">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Best-Fit Hyperplane</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../topics/linear_algebra/notes/inverse.html" class="pagination-link" aria-label="Inverse and Determinant">
+        <span class="nav-page-text">Inverse and Determinant</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024 @ Karthik Thiagarajan</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
