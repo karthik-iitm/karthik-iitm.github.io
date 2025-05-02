@@ -13,4 +13,4 @@ My name is Karthik Thiagarajan, a teaching fellow at the BS program in Data Scie
 - MLT
 - RL
 
-I maintain the content that I create as a part of these courses here. My Discourse handle is `Karthik_POD`. You can navigate through the content by using the sidebar.
+I maintain the content that I create as a part of these courses here. My Discourse handle is `Karthik_POD`. You can navigate through the content by using the sidebar on the left.
